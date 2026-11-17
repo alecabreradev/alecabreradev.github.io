@@ -35,14 +35,15 @@ const en = {
   about: {
     title: "About me",
     paragraphs: [
-      "My background is in Computer Engineering (Information Systems) at the University of Cádiz. During my Erasmus+ at the University of Wrocław (Poland) I studied in an international environment and in another language, a challenge that taught me to adapt quickly and solve problems on my own.",
-      "I like moving between development, data and AI. I care about understanding the problem before writing code and about delivering things that really work: correct results and code someone else can follow. I’m looking to join a team where I can contribute and keep growing.",
+      "I enjoy taking an idea all the way to something people can use. I’ve built an Android and web booking system on my own REST API, and a machine learning model that beats its baseline by 28% at predicting pollution in Madrid.",
+      "Software and AI are what motivate me most, and I’m now going deeper into AI applications. My background is Computer Engineering at the University of Cádiz, plus an Erasmus+ year in Poland studying in English, which taught me to adapt quickly.",
+      "I’m looking for a team where I can contribute from day one and keep growing.",
     ],
     facts: [
       { term: "Education", value: "Computer Engineering · University of Cádiz" },
       { term: "Erasmus+", value: "Computer Science · University of Wrocław, Poland · 2025–26" },
       { term: "Languages", value: "Native Spanish · professional English" },
-      { term: "Based in", value: "Trebujena, Cádiz, Spain" },
+      { term: "Based in", value: "Cádiz, Spain" },
     ],
   },
   projects: {
@@ -129,14 +130,32 @@ const en = {
   },
   timeline: {
     title: "Path so far",
+    openProject: "See project",
+    kinds: { project: "Project", education: "Education" },
     items: [
       {
+        date: "2026",
+        kind: "project",
+        project: "no2",
+        title: "Madrid NO₂ forecast",
+        text: "My first machine learning model on real data: it predicts high-pollution days one day ahead and beats the baseline by 28%.",
+      },
+      {
         date: "2025 – 2026",
+        kind: "education",
         title: "Erasmus+ · Computer Science · University of Wrocław",
-        text: "Courses in English on data engineering, software architectures and computing paradigms.",
+        text: "A year studying in English in an international environment, a challenge that taught me to adapt quickly and solve problems on my own.",
+      },
+      {
+        date: "2024",
+        kind: "project",
+        project: "corteArte",
+        title: "Corte & Arte",
+        text: "My first complete project: a Kotlin Android app, a React website and my own Node.js + MongoDB REST API sharing the bookings.",
       },
       {
         date: "2022 – now",
+        kind: "education",
         title: "Computer Engineering · University of Cádiz",
         text: "Information Systems: AI, machine learning, data, algorithms and databases.",
       },

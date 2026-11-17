@@ -22,8 +22,35 @@
   font-variant-numeric: tabular-nums;
 }
 
-.timeline__item--current .timeline__date {
+.timeline__kind {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 1px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font: 600 11px var(--font-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.timeline__item--education .timeline__kind {
+  background: color-mix(in srgb, var(--color-signal) 14%, transparent);
   color: var(--color-signal);
+}
+
+.timeline__link {
+  margin-top: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-accent);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.timeline__link:hover {
+  text-decoration: underline;
 }
 
 .timeline__item h3 {

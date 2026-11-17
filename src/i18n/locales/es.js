@@ -35,14 +35,15 @@ const es = {
   about: {
     title: "Sobre mí",
     paragraphs: [
-      "Mi formación es en Ingeniería Informática (Sistemas de Información) en la Universidad de Cádiz. Durante mi Erasmus+ en la Universidad de Wrocław (Polonia) estudié en un entorno internacional y en otro idioma, un reto que me enseñó a adaptarme rápido y a resolver problemas por mi cuenta.",
-      "Me gusta moverme entre el desarrollo, los datos y la IA. Me importa entender bien el problema antes de programar y que lo que entrego funcione de verdad: resultados correctos y código que otra persona pueda entender. Busco incorporarme a un equipo donde aportar y seguir creciendo.",
+      "Me gusta llevar una idea hasta el final, hasta convertirla en algo que la gente pueda usar. He construido un sistema de reservas para Android y web sobre mi propia API REST, y un modelo de machine learning que mejora en un 28 % a la referencia al predecir la contaminación en Madrid.",
+      "El software y la IA son lo que más me motiva, y ahora estoy profundizando en aplicaciones de IA. Mi formación es en Ingeniería Informática en la Universidad de Cádiz, y pasé un año de Erasmus+ en Polonia estudiando en inglés, algo que me enseñó a adaptarme rápido.",
+      "Busco un equipo en el que aportar desde el primer día y seguir creciendo.",
     ],
     facts: [
       { term: "Formación", value: "Ingeniería Informática · Universidad de Cádiz" },
       { term: "Erasmus+", value: "Computer Science · Universidad de Wrocław, Polonia · 2025–26" },
       { term: "Idiomas", value: "Español nativo · inglés profesional" },
-      { term: "Base", value: "Trebujena, Cádiz" },
+      { term: "Base", value: "Cádiz, España" },
     ],
   },
   projects: {
@@ -130,14 +131,32 @@ const es = {
   },
   timeline: {
     title: "Trayectoria",
+    openProject: "Ver proyecto",
+    kinds: { project: "Proyecto", education: "Formación" },
     items: [
       {
+        date: "2026",
+        kind: "project",
+        project: "no2",
+        title: "Predicción de NO₂ en Madrid",
+        text: "Primer modelo de machine learning con datos reales: predice con un día de antelación los días de contaminación alta y mejora en un 28 % a la referencia.",
+      },
+      {
         date: "2025 – 2026",
+        kind: "education",
         title: "Erasmus+ · Computer Science · Universidad de Wrocław",
-        text: "Asignaturas en inglés de ingeniería de datos, arquitecturas de software y paradigmas de computación.",
+        text: "Un año estudiando en inglés en un entorno internacional, un reto que me enseñó a adaptarme rápido y a resolver problemas por mi cuenta.",
+      },
+      {
+        date: "2024",
+        kind: "project",
+        project: "corteArte",
+        title: "Corte & Arte",
+        text: "Mi primer proyecto completo: app Android en Kotlin, web en React y una API REST propia con Node.js y MongoDB que comparten las reservas.",
       },
       {
         date: "2022 – hoy",
+        kind: "education",
         title: "Ingeniería Informática · Universidad de Cádiz",
         text: "Sistemas de Información: IA, machine learning, datos, algoritmos y bases de datos.",
       },
