@@ -14,7 +14,7 @@ const es = {
     theme: "Tema",
   },
   hero: {
-    title: "Construyo software que entiende datos.",
+    title: "He construido software que entiende datos.",
     intro:
       "Soy Alejandro, estudiante de último curso de Ingeniería Informática en la Universidad de Cádiz. Durante la carrera he construido varios proyectos de los que he aprendido mucho, desde aplicaciones móviles y web de principio a fin hasta modelos de machine learning con datos reales, un campo en el que estoy profundizando ahora para desarrollar mi Trabajo de Fin de Grado.",
     availability: "Busco puesto junior o de prácticas · posibilidad de convenio con la universidad",

@@ -14,7 +14,7 @@ const en = {
     theme: "Theme",
   },
   hero: {
-    title: "I build software that understands data.",
+    title: "I’ve built software that understands data.",
     intro:
       "I’m Alejandro, a final-year Computer Engineering student at the University of Cádiz. During my degree I’ve built several projects that taught me a lot, from mobile and web apps built end to end to machine learning models with real data, an area I’m now exploring further as the basis for my bachelor’s thesis.",
     availability:
