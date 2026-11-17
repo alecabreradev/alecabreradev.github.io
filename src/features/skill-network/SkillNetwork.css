@@ -105,8 +105,26 @@
 }
 
 .skill-network__node.is-lit rect {
+  transition:
+    fill 0.25s,
+    stroke 0.25s;
   fill: var(--color-accent-soft);
   stroke: var(--color-signal);
+}
+
+.skill-network__edge.is-flowing {
+  stroke: var(--color-signal);
+  stroke-opacity: 0.45;
+}
+
+.skill-network__node rect {
+  transition:
+    fill 0.25s,
+    stroke 0.25s;
+}
+
+.skill-network__node.is-flowing rect {
+  stroke: color-mix(in srgb, var(--color-signal) 55%, var(--color-border));
 }
 
 .skill-network__pulse {

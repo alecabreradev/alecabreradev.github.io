@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { computeLayout, connectedNodes } from "./layout.js";
+import { areaFlow, computeLayout, connectedNodes } from "./layout.js";
 
 const input = {
   areas: ["web", "ai"],
@@ -54,5 +54,15 @@ describe("connectedNodes", () => {
     expect(connectedNodes("area:web", edges)).toEqual(
       new Set(["area:web", "skill:0", "skill:2", "project:site"]),
     );
+  });
+});
+
+describe("areaFlow", () => {
+  it("follows one area to its skills and from them to their projects", () => {
+    const { edges } = computeLayout({ ...input, width: 800 });
+    const flow = areaFlow("area:web", edges);
+    expect(flow.first.map((e) => e.to)).toEqual(["skill:0", "skill:2"]);
+    expect(flow.second.map((e) => `${e.from}>${e.to}`)).toEqual(["skill:0>project:site"]);
+    expect(flow.projects).toEqual(["project:site"]);
   });
 });

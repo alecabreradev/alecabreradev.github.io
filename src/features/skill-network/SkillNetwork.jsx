@@ -1,11 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { AREAS, SKILLS } from "../../data/skills.js";
 import { PROJECTS } from "../../data/profile.js";
 import { useLanguage } from "../../i18n/context.js";
 import useElementWidth from "../../hooks/useElementWidth.js";
 import { prefersReducedMotion } from "../../utils/motion.js";
-import { computeLayout, connectedNodes } from "./layout.js";
-import { playPulse } from "./pulse.js";
+import { areaFlow, computeLayout, connectedNodes } from "./layout.js";
+import { playAreaLoop } from "./pulse.js";
 import "./SkillNetwork.css";
 
 const PROJECT_IDS = PROJECTS.map((project) => project.id);
@@ -23,10 +23,10 @@ export default function SkillNetwork({ onOpenProject }) {
   const [containerRef, width] = useElementWidth();
   const [selected, setSelected] = useState(null);
   const [hovered, setHovered] = useState(null);
-  const [projectsLit, setProjectsLit] = useState(false);
+  const [pulse, setPulse] = useState({ area: null, projects: [] });
+  const [visible, setVisible] = useState(false);
   const svgRef = useRef(null);
   const pulseLayerRef = useRef(null);
-  const stopPulseRef = useRef(() => {});
 
   const layout = useMemo(() => {
     if (!width) return null;
@@ -49,22 +49,43 @@ export default function SkillNetwork({ onOpenProject }) {
     [activeId, layout],
   );
 
-  const playOnce = useCallback(() => {
-    if (prefersReducedMotion() || !svgRef.current || !pulseLayerRef.current) return;
-    stopPulseRef.current();
-    stopPulseRef.current = playPulse(svgRef.current, pulseLayerRef.current, setProjectsLit);
-  }, []);
-
-  // Play the animation once, shortly after the network first appears (a welcome, not a control)
-  const hasPlayed = useRef(false);
+  // Run only while the network is on screen and the tab is visible
   useEffect(() => {
-    if (!layout || hasPlayed.current) return undefined;
-    hasPlayed.current = true;
-    const timer = setTimeout(playOnce, 350);
-    return () => clearTimeout(timer);
-  }, [layout, playOnce]);
+    const element = containerRef.current;
+    if (!element) return undefined;
+    let onScreen = false;
+    const update = () => setVisible(onScreen && document.visibilityState === "visible");
+    const observer = new IntersectionObserver(([entry]) => {
+      onScreen = entry.isIntersecting;
+      update();
+    });
+    observer.observe(element);
+    document.addEventListener("visibilitychange", update);
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", update);
+    };
+  }, [containerRef]);
 
-  useEffect(() => () => stopPulseRef.current(), []);
+  // Signals flow from each area to its projects, one area after another, in a loop.
+  // The loop pauses while the visitor explores a node so it never fights their hover.
+  const paused = Boolean(activeId);
+  useEffect(() => {
+    if (!layout || !visible || paused || prefersReducedMotion()) return undefined;
+    if (!svgRef.current || !pulseLayerRef.current) return undefined;
+    const areaIds = AREAS.map((id) => `area:${id}`);
+    return playAreaLoop(svgRef.current, pulseLayerRef.current, areaIds, layout.edges, setPulse);
+  }, [layout, visible, paused]);
+
+  // Edges and skills of the area the signal is currently travelling through
+  const flowing = useMemo(() => {
+    if (!pulse.area || !layout) return null;
+    const { first, second } = areaFlow(pulse.area, layout.edges);
+    return {
+      edges: new Set([...first, ...second].map((edge) => `${edge.from}>${edge.to}`)),
+      skills: new Set(first.map((edge) => edge.to)),
+    };
+  }, [pulse.area, layout]);
 
   const labelOf = (nodeId) => layout.nodes.find((node) => node.id === nodeId)?.label ?? "";
 
@@ -133,8 +154,16 @@ export default function SkillNetwork({ onOpenProject }) {
               {layout.edges.map((edge) => (
                 <path
                   key={`${edge.from}>${edge.to}`}
-                  className={`skill-network__edge${related?.has(edge.from) && related?.has(edge.to) ? " is-related" : ""}`}
+                  className={[
+                    "skill-network__edge",
+                    related?.has(edge.from) && related?.has(edge.to) && "is-related",
+                    flowing?.edges.has(`${edge.from}>${edge.to}`) && "is-flowing",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
                   data-layer={edge.layer}
+                  data-from={edge.from}
+                  data-to={edge.to}
                   d={edge.path}
                 />
               ))}
@@ -144,7 +173,9 @@ export default function SkillNetwork({ onOpenProject }) {
               const classes = ["skill-network__node", `skill-network__node--${node.kind}`];
               if (related?.has(node.id)) classes.push("is-related");
               if (selected === node.id) classes.push("is-selected");
-              if (node.kind === "project" && projectsLit) classes.push("is-lit");
+              if (pulse.area === node.id || pulse.projects.includes(node.id))
+                classes.push("is-lit");
+              if (flowing?.skills.has(node.id)) classes.push("is-flowing");
               return (
                 <g
                   key={node.id}

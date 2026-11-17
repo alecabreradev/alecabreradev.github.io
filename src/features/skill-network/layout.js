@@ -129,3 +129,17 @@ export function connectedNodes(nodeId, edges) {
   walk(false);
   return found;
 }
+
+/**
+ * Edges travelled when a signal leaves one area: area → its skills (layer 1),
+ * then those skills → their projects (layer 2), plus the projects reached.
+ *
+ * @param {string} areaId  Node id such as "area:web"
+ * @param {{from: string, to: string, layer: number}[]} edges
+ */
+export function areaFlow(areaId, edges) {
+  const first = edges.filter((edge) => edge.layer === 1 && edge.from === areaId);
+  const skills = new Set(first.map((edge) => edge.to));
+  const second = edges.filter((edge) => edge.layer === 2 && skills.has(edge.from));
+  return { first, second, projects: [...new Set(second.map((edge) => edge.to))] };
+}
