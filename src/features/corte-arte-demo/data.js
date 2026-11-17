@@ -8,25 +8,45 @@ export const ROOMS = [
     name: "Sala de Corte",
     scene: "corte",
     description: "Cortes personalizados para hombre, mujer y niños.",
-    services: ["Corte y peinado", "Arreglo de barba"],
+    short: "Corte",
+    services: [
+      { name: "Corte y peinado", minutes: 45, price: 18 },
+      { name: "Arreglo de barba", minutes: 20, price: 9 },
+      { name: "Corte infantil", minutes: 30, price: 12 },
+    ],
   },
   {
     name: "Sala de Color",
     scene: "color",
     description: "Coloración profesional y técnicas avanzadas.",
-    services: ["Balayage", "Mechas"],
+    short: "Color",
+    services: [
+      { name: "Balayage", minutes: 120, price: 65 },
+      { name: "Mechas", minutes: 90, price: 45 },
+      { name: "Tinte raíz", minutes: 60, price: 30 },
+    ],
   },
   {
     name: "Sala de Estética",
     scene: "estetica",
     description: "Tratamientos capilares especializados.",
-    services: ["Keratina", "Hidratación"],
+    short: "Estética",
+    services: [
+      { name: "Keratina", minutes: 90, price: 55 },
+      { name: "Hidratación", minutes: 40, price: 22 },
+      { name: "Masaje capilar", minutes: 25, price: 15 },
+    ],
   },
   {
     name: "Sala VIP",
     scene: "vip",
     description: "Estilismo para eventos y asesoría de imagen.",
-    services: ["Peinado de evento", "Asesoría de imagen"],
+    short: "VIP",
+    services: [
+      { name: "Peinado evento", minutes: 60, price: 40 },
+      { name: "Asesoría imagen", minutes: 45, price: 35 },
+      { name: "Recogido novia", minutes: 90, price: 80 },
+    ],
   },
 ];
 
@@ -64,8 +84,8 @@ export const EMPTY_BOOKING = {
 };
 
 export const MENU_ITEMS = [
-  { screen: "rooms", label: "Salas" },
-  { screen: "booking", label: "Reserva" },
-  { screen: "admin", label: "Admin" },
-  { screen: "location", label: "Localización" },
+  { screen: "rooms", label: "Salas", icon: "rooms" },
+  { screen: "booking", label: "Reserva", icon: "booking" },
+  { screen: "admin", label: "Admin", icon: "admin" },
+  { screen: "location", label: "Localización", icon: "location" },
 ];

@@ -2,6 +2,7 @@ import { useEffect, useReducer } from "react";
 import { MENU_ITEMS } from "./data.js";
 import { demoReducer, initialState } from "./demoReducer.js";
 import ApiLog from "./ApiLog.jsx";
+import MenuIcon from "./MenuIcon.jsx";
 import LoginScreen from "./screens/LoginScreen.jsx";
 import HomeScreen from "./screens/HomeScreen.jsx";
 import RoomsScreen from "./screens/RoomsScreen.jsx";
@@ -68,7 +69,13 @@ export default function CorteArteDemo({ label, hint }) {
               }
             >
               <nav aria-label="Menú de la app">
-                <p>Menú</p>
+                <div className="phone__drawer-header">
+                  <span className="phone__drawer-logo">C&amp;A</span>
+                  <span>
+                    <strong>Corte &amp; Arte</strong>
+                    <small>cliente@corteyarte.es</small>
+                  </span>
+                </div>
                 {MENU_ITEMS.map((item) => (
                   <button
                     key={item.screen}
@@ -76,10 +83,16 @@ export default function CorteArteDemo({ label, hint }) {
                     aria-current={screen === item.screen ? "page" : undefined}
                     onClick={() => dispatch({ type: "navigate", screen: item.screen })}
                   >
+                    <MenuIcon name={item.icon} />
                     {item.label}
                   </button>
                 ))}
-                <button type="button" onClick={() => dispatch({ type: "logout" })}>
+                <button
+                  type="button"
+                  className="phone__drawer-logout"
+                  onClick={() => dispatch({ type: "logout" })}
+                >
+                  <MenuIcon name="logout" />
                   Cerrar sesión
                 </button>
               </nav>

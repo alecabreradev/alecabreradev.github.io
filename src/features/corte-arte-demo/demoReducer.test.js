@@ -39,8 +39,15 @@ describe("demoReducer", () => {
     expect(state.log[0].status).toBe(404);
   });
 
+  it("opens the booking form with the chosen room already selected", () => {
+    const state = run([{ type: "bookRoom", room: "Sala VIP" }]);
+    expect(state.screen).toBe("booking");
+    expect(state.form.room).toBe("Sala VIP");
+    expect(state.editingId).toBeNull();
+  });
+
   it("keeps at most seven log entries", () => {
-    const actions = Array.from({ length: 12 }, () => ({ type: "exportPdf" }));
+    const actions = Array.from({ length: 12 }, () => ({ type: "search", query: "1" }));
     expect(run(actions).log).toHaveLength(7);
   });
 });

@@ -61,13 +61,15 @@ export function demoReducer(state, action) {
       return next;
     }
 
-    case "exportPdf":
-      return withLog(
-        { ...state, toast: "PDF generado: informacion_salas.pdf" },
-        "PDF",
-        "informacion_salas.pdf · A4",
-        "OK",
-      );
+    case "bookRoom":
+      return {
+        ...state,
+        screen: "booking",
+        drawerOpen: false,
+        editingId: null,
+        form: { ...EMPTY_BOOKING, room: action.room },
+        errors: {},
+      };
 
     case "setAdminTab":
       return { ...state, adminTab: action.tab };
