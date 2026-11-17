@@ -46,36 +46,9 @@
 }
 
 /* Technologies summary */
-.skills-summary {
-  margin-top: 28px;
-}
-
-.skills-summary__title {
-  margin: 0 0 12px;
-  font-size: 18px;
-}
-
-.skills-summary__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px 32px;
-}
-
-.skills-summary h4 {
-  margin: 0 0 2px;
-  font: 600 15px var(--font-body);
-}
-
-.skills-summary p {
-  margin: 0;
-  color: var(--color-text-muted);
-  font-size: 15px;
-}
-
 @media (max-width: 780px) {
   .project-panel,
-  .project-panel--wide-demo,
-  .skills-summary__grid {
+  .project-panel--wide-demo {
     grid-template-columns: 1fr;
   }
 }

@@ -18,6 +18,34 @@ body {
   font: 17px/1.65 var(--font-body);
 }
 
+/*
+ * Background: a faint dot grid, like engineering paper, that fades out towards the
+ * bottom of the screen, plus a soft glow behind the hero. Fixed and non-interactive.
+ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 45% at 85% 0%, var(--color-glow), transparent 70%),
+    radial-gradient(45% 35% at 0% 10%, var(--color-glow), transparent 70%),
+    radial-gradient(circle at 1px 1px, var(--color-grid) 1.2px, transparent 1.6px) 0 0 / 22px 22px;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    rgba(0, 0, 0, 0.55) 55%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    rgba(0, 0, 0, 0.55) 55%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+}
+
 h1,
 h2,
 h3 {

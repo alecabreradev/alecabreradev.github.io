@@ -4,13 +4,14 @@ import Section from "../../components/Section/Section.jsx";
 import CorteArteDemo from "../../features/corte-arte-demo/CorteArteDemo.jsx";
 import ModelComparison from "../../features/no2-demo/ModelComparison.jsx";
 import ThresholdExplorer from "../../features/no2-demo/ThresholdExplorer.jsx";
+import Toolkit from "../../features/toolkit/Toolkit.jsx";
 import ProjectTabs from "./ProjectTabs.jsx";
 import ProjectPanel from "./ProjectPanel.jsx";
 import "./Projects.css";
 
 const [corteArte, no2] = PROJECTS;
 
-export default function Projects({ selectedId, onSelect, theme }) {
+export default function Projects({ selectedId, onSelect, onOpenProject, theme }) {
   const { t } = useLanguage();
   const tabs = PROJECTS.map((project) => ({
     id: project.id,
@@ -60,17 +61,7 @@ export default function Projects({ selectedId, onSelect, theme }) {
         demo={<ThresholdExplorer theme={theme} />}
       />
 
-      <div className="skills-summary">
-        <h3 className="skills-summary__title">{t("projects.skills.title")}</h3>
-        <div className="skills-summary__grid">
-          {t("projects.skills.groups").map((group) => (
-            <div key={group.name}>
-              <h4>{group.name}</h4>
-              <p>{group.items}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+      <Toolkit onOpenProject={onOpenProject} />
     </Section>
   );
 }

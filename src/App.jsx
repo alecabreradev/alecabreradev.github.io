@@ -26,7 +26,12 @@ export default function App() {
       <main id="top">
         <Hero onOpenProject={openProject} />
         <About />
-        <Projects selectedId={projectId} onSelect={setProjectId} theme={theme} />
+        <Projects
+          selectedId={projectId}
+          onSelect={setProjectId}
+          onOpenProject={openProject}
+          theme={theme}
+        />
         <Timeline />
         <Contact />
       </main>

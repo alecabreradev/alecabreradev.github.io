@@ -1,0 +1,331 @@
+/* Interactive toolkit (technologies) shown under the projects */
+
+.toolkit {
+  margin-top: 36px;
+  padding: 22px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.toolkit__title {
+  margin: 0 0 2px;
+  font-size: 20px;
+}
+
+.toolkit__header p {
+  margin: 0 0 16px;
+}
+
+/* Category colors: each modifier sets --tone, used by tiles, marks and filters */
+.toolkit__filter--all {
+  --tone: var(--color-text);
+}
+
+.toolkit__tile--lang,
+.toolkit__detail--lang,
+.toolkit__filter--lang {
+  --tone: var(--color-cat-lang);
+}
+
+.toolkit__tile--web,
+.toolkit__detail--web,
+.toolkit__filter--web {
+  --tone: var(--color-cat-web);
+}
+
+.toolkit__tile--ai,
+.toolkit__detail--ai,
+.toolkit__filter--ai {
+  --tone: var(--color-cat-ai);
+}
+
+.toolkit__tile--db,
+.toolkit__detail--db,
+.toolkit__filter--db {
+  --tone: var(--color-cat-db);
+}
+
+.toolkit__context--corteArte,
+.toolkit__dot--corteArte {
+  --ctx: var(--color-ctx-corteArte);
+}
+
+.toolkit__context--no2,
+.toolkit__dot--no2 {
+  --ctx: var(--color-ctx-no2);
+}
+
+.toolkit__context--portfolio,
+.toolkit__dot--portfolio {
+  --ctx: var(--color-ctx-portfolio);
+}
+
+.toolkit__context--degree,
+.toolkit__dot--degree {
+  --ctx: var(--color-ctx-degree);
+}
+
+/* Filters */
+.toolkit__filters,
+.toolkit__contexts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolkit__contexts {
+  margin: 12px 0 18px;
+  font-size: 14px;
+}
+
+.toolkit__filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: none;
+  font-size: 14px;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+
+.toolkit__filter:hover {
+  border-color: var(--tone);
+}
+
+.toolkit__filter[aria-pressed="true"] {
+  border-color: var(--tone);
+  background: color-mix(in srgb, var(--tone) 14%, transparent);
+  font-weight: 600;
+}
+
+.toolkit__filter-count {
+  min-width: 20px;
+  padding: 0 6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-soft);
+  color: var(--color-text-muted);
+  font: 12px/1.6 var(--font-mono);
+  text-align: center;
+}
+
+.toolkit__context,
+.toolkit__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: none;
+  font-size: 13px;
+}
+
+.toolkit__context:hover,
+.toolkit__context[aria-pressed="true"] {
+  border-color: var(--ctx);
+  background: color-mix(in srgb, var(--ctx) 12%, transparent);
+}
+
+.toolkit__context-dot,
+.toolkit__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ctx);
+  flex: none;
+}
+
+/* Tiles */
+.toolkit__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 18px;
+  align-items: start;
+}
+
+.toolkit__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toolkit__grid li {
+  animation: toolkit-in 0.35s both;
+  animation-delay: var(--delay);
+}
+
+@keyframes toolkit-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.97);
+  }
+}
+
+.toolkit__tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  text-align: left;
+  transition:
+    transform 0.15s,
+    border-color 0.15s,
+    box-shadow 0.15s,
+    opacity 0.2s;
+}
+
+.toolkit__tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--tone);
+  box-shadow: 0 6px 18px -10px var(--tone);
+}
+
+.toolkit__tile[aria-pressed="true"] {
+  border-color: var(--tone);
+  box-shadow: inset 0 0 0 1px var(--tone);
+}
+
+.toolkit__tile[data-dimmed] {
+  opacity: 0.28;
+}
+
+.toolkit__mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--tone) 16%, transparent);
+  color: var(--tone);
+  font: 600 14px var(--font-mono);
+  letter-spacing: -0.03em;
+}
+
+.toolkit__mark--large {
+  width: 52px;
+  height: 52px;
+  font-size: 18px;
+}
+
+.toolkit__name {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.toolkit__dots {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 4px;
+}
+
+.toolkit__dot {
+  width: 7px;
+  height: 7px;
+}
+
+/* Detail */
+.toolkit__detail {
+  position: sticky;
+  top: 80px;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--tone);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+
+.toolkit__detail-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toolkit__detail-head > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.toolkit__detail-name {
+  font: 600 17px var(--font-display);
+}
+
+.toolkit__detail p {
+  margin: 12px 0;
+  font-size: 15px;
+}
+
+.toolkit__detail-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+@media (max-width: 780px) {
+  .toolkit {
+    padding: 16px;
+  }
+
+  .toolkit__body {
+    grid-template-columns: 1fr;
+  }
+
+  .toolkit__detail {
+    position: static;
+    order: -1;
+  }
+
+  .toolkit__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .toolkit__tile {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+  }
+
+  .toolkit__mark {
+    flex: none;
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .toolkit__name {
+    font-size: 13px;
+    padding-right: 14px;
+  }
+
+  .toolkit__dots {
+    top: 8px;
+    right: 8px;
+    flex-direction: column;
+  }
+
+  .toolkit__filter {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+}

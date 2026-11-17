@@ -1,4 +1,5 @@
 import { ROOMS } from "../data.js";
+import RoomImage from "../RoomImage.jsx";
 
 export default function RoomsScreen({ dispatch }) {
   return (
@@ -6,7 +7,7 @@ export default function RoomsScreen({ dispatch }) {
       <h4>Nuestras salas</h4>
       {ROOMS.map((room) => (
         <div key={room.name} className="phone__card">
-          <div className="phone__card-image" />
+          <RoomImage scene={room.scene} label={`Ilustración de la ${room.name}`} />
           <strong>{room.name}</strong>
           <p className="phone__muted">{room.description}</p>
           <ul>

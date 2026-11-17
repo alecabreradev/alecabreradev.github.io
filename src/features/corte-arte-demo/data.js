@@ -6,21 +6,25 @@
 export const ROOMS = [
   {
     name: "Sala de Corte",
+    scene: "corte",
     description: "Cortes personalizados para hombre, mujer y niños.",
     services: ["Corte y peinado", "Arreglo de barba"],
   },
   {
     name: "Sala de Color",
+    scene: "color",
     description: "Coloración profesional y técnicas avanzadas.",
     services: ["Balayage", "Mechas"],
   },
   {
     name: "Sala de Estética",
+    scene: "estetica",
     description: "Tratamientos capilares especializados.",
     services: ["Keratina", "Hidratación"],
   },
   {
     name: "Sala VIP",
+    scene: "vip",
     description: "Estilismo para eventos y asesoría de imagen.",
     services: ["Peinado de evento", "Asesoría de imagen"],
   },

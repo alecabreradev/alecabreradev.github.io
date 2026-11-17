@@ -87,20 +87,51 @@ const en = {
     },
     skills: {
       title: "Technologies",
-      groups: [
-        { name: "Languages", items: "Python, Kotlin, Java, C/C++, JavaScript, TypeScript, SQL" },
-        {
-          name: "Web and mobile",
-          items:
-            "Android (Jetpack Compose, Retrofit), React, Node.js, Express.js, REST APIs, HTML, CSS",
-        },
-        { name: "AI and data", items: "Scikit-learn, XGBoost, TensorFlow, PyTorch, Pandas, NumPy" },
-        {
-          name: "Databases and tools",
-          items:
-            "PostgreSQL, MySQL, Oracle SQL, MongoDB, Firebase, Docker, Git, Linux, Postman, Jupyter, Figma",
-        },
-      ],
+      intro:
+        "Filter by area or by where I used it, and pick a technology to see what I did with it.",
+      filterLabel: "Filter by area",
+      contextsLabel: "Where I used it:",
+      categories: {
+        all: "All",
+        lang: "Languages",
+        web: "Web and mobile",
+        ai: "AI and data",
+        db: "Databases and tools",
+      },
+      contexts: {
+        corteArte: "Corte & Arte",
+        no2: "NO₂ forecast",
+        portfolio: "This portfolio",
+        degree: "Degree",
+      },
+      openProject: "Open",
+      noProject:
+        "I used it during my degree. It doesn’t have its own project in this portfolio yet.",
+      notes: {
+        python: "The whole NO₂ project: downloading open data, cleaning, features and models.",
+        kotlin: "The Corte & Arte Android app: screens, navigation and API calls.",
+        javascript: "The Corte & Arte API and website, and this portfolio.",
+        compose:
+          "The screens of the Corte & Arte Android app: login, rooms, bookings, admin panel and map.",
+        retrofit: "The requests from the Android app to the Corte & Arte booking REST API.",
+        react: "The Corte & Arte website and this portfolio, split into components and tested.",
+        node: "The server of the API shared by the Corte & Arte app and website.",
+        express: "The CRUD routes of /api/reservas, with validation and CORS.",
+        rest: "A single REST API for both the Android app and the Corte & Arte website.",
+        htmlcss:
+          "The Corte & Arte website and this portfolio, with hand-written CSS, light and dark themes and a responsive layout.",
+        sklearn:
+          "Logistic regression (the best model, PR-AUC 0.83) and random forest, with time-based validation and threshold tuning.",
+        xgboost: "One of the models compared in the NO₂ forecast (PR-AUC 0.78).",
+        pandas:
+          "Joining the station’s daily readings with the weather and building previous-day features.",
+        numpy: "Numerical work and metrics in the NO₂ forecast.",
+        mongodb: "The Corte & Arte bookings database, with Mongoose and MongoDB Atlas.",
+        firebase: "Sign-in and password recovery in the Corte & Arte app.",
+        git: "Version control for all my projects, published on GitHub.",
+        jupyter: "The notebook of the NO₂ project, with the analysis explained step by step.",
+        figma: "Designing the Corte & Arte screens before coding them.",
+      },
     },
   },
   timeline: {

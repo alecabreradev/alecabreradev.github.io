@@ -207,10 +207,12 @@
 }
 
 .phone__card-image {
-  height: 52px;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 2;
   margin: -2px 0 8px;
   border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, #8d8d96, #cfcfd6 55%, #a2a2ab);
 }
 
 .phone__card-actions {

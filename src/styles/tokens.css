@@ -14,6 +14,20 @@
   --color-signal: #0d9488;
   --color-warning: #c2410c;
 
+  /* Toolkit categories and contexts */
+  --color-cat-lang: #4338ca;
+  --color-cat-web: #0e7490;
+  --color-cat-ai: #b45309;
+  --color-cat-db: #be185d;
+  --color-ctx-corteArte: #7c3aed;
+  --color-ctx-no2: #0d9488;
+  --color-ctx-portfolio: #2563eb;
+  --color-ctx-degree: #8a91a8;
+
+  /* Background pattern */
+  --color-grid: rgba(67, 56, 202, 0.13);
+  --color-glow: rgba(99, 102, 241, 0.12);
+
   /* Typography */
   --font-display: "Sora", system-ui, sans-serif;
   --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -41,6 +55,16 @@
     --color-accent-soft: #252a50;
     --color-signal: #2dd4bf;
     --color-warning: #fb923c;
+    --color-cat-lang: #a3a4fc;
+    --color-cat-web: #67d5e8;
+    --color-cat-ai: #fbbf5a;
+    --color-cat-db: #f48fc0;
+    --color-ctx-corteArte: #c4a5ff;
+    --color-ctx-no2: #2dd4bf;
+    --color-ctx-portfolio: #7fb0ff;
+    --color-ctx-degree: #8a91b0;
+    --color-grid: rgba(163, 164, 252, 0.1);
+    --color-glow: rgba(99, 102, 241, 0.16);
     color-scheme: dark;
   }
 }
@@ -55,5 +79,15 @@
   --color-accent-soft: #252a50;
   --color-signal: #2dd4bf;
   --color-warning: #fb923c;
+  --color-cat-lang: #a3a4fc;
+  --color-cat-web: #67d5e8;
+  --color-cat-ai: #fbbf5a;
+  --color-cat-db: #f48fc0;
+  --color-ctx-corteArte: #c4a5ff;
+  --color-ctx-no2: #2dd4bf;
+  --color-ctx-portfolio: #7fb0ff;
+  --color-ctx-degree: #8a91b0;
+  --color-grid: rgba(163, 164, 252, 0.1);
+  --color-glow: rgba(99, 102, 241, 0.16);
   color-scheme: dark;
 }
