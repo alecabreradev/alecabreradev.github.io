@@ -1,0 +1,38 @@
+.about {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: start;
+  gap: 32px;
+}
+
+.about > * {
+  min-width: 0;
+}
+
+.about__text p {
+  max-width: 38em;
+  margin: 0 0 14px;
+}
+
+.about__facts {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 16px;
+  border-left: 2px solid var(--color-border);
+}
+
+.about__facts dt {
+  color: var(--color-text-muted);
+  font: 13px var(--font-mono);
+}
+
+.about__facts dd {
+  margin: 0;
+}
+
+@media (max-width: 780px) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+}

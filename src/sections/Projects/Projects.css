@@ -1,0 +1,81 @@
+/* Tabs */
+.project-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 14px;
+}
+
+.project-tabs button {
+  padding: 5px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-size: 15px;
+}
+
+.project-tabs button[aria-selected="true"] {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* Project panel */
+.project-panel {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 26px;
+  padding: 22px;
+}
+
+.project-panel--wide-demo {
+  grid-template-columns: 1fr 1.45fr;
+}
+
+.project-panel > * {
+  min-width: 0;
+}
+
+.project-panel h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.project-panel p {
+  margin: 0 0 10px;
+}
+
+/* Technologies summary */
+.skills-summary {
+  margin-top: 28px;
+}
+
+.skills-summary__title {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.skills-summary__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 32px;
+}
+
+.skills-summary h4 {
+  margin: 0 0 2px;
+  font: 600 15px var(--font-body);
+}
+
+.skills-summary p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 15px;
+}
+
+@media (max-width: 780px) {
+  .project-panel,
+  .project-panel--wide-demo,
+  .skills-summary__grid {
+    grid-template-columns: 1fr;
+  }
+}

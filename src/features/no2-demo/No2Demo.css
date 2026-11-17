@@ -1,0 +1,132 @@
+/* Model comparison (PR-AUC bars) */
+.model-comparison {
+  display: grid;
+  gap: 5px;
+  margin: 0 0 12px;
+}
+
+.model-comparison figcaption {
+  margin-bottom: 4px;
+}
+
+.model-comparison__row {
+  display: grid;
+  grid-template-columns: minmax(0, 9.5em) 1fr 38px;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.model-comparison__track {
+  display: block;
+}
+
+.model-comparison__fill {
+  display: block;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-border);
+}
+
+.model-comparison__row.is-best .model-comparison__fill {
+  background: var(--color-accent);
+}
+
+.model-comparison__value {
+  font: 13px var(--font-mono);
+}
+
+/* Threshold explorer */
+.threshold-explorer {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+
+.threshold-explorer__chart {
+  display: block;
+  width: 100%;
+  height: 150px;
+}
+
+.threshold-explorer__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 6px 0;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  border-radius: 2px;
+  vertical-align: -1px;
+}
+
+.legend-swatch--accent {
+  background: var(--color-accent);
+}
+
+.legend-swatch--signal {
+  background: var(--color-signal);
+}
+
+.threshold-explorer__control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 8px;
+  font: 13px var(--font-mono);
+}
+
+.threshold-explorer__control input {
+  flex: 1;
+  accent-color: var(--color-accent);
+}
+
+.threshold-explorer__summary {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.threshold-explorer__summary strong {
+  font-weight: 600;
+}
+
+.threshold-explorer__hint {
+  margin: 8px 0 0;
+}
+
+/* Metric bars */
+.metric {
+  display: grid;
+  grid-template-columns: 78px 1fr 44px;
+  align-items: center;
+  gap: 8px;
+  margin: 2px 0;
+  font: 13px var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.metric__track {
+  display: block;
+}
+
+.metric__fill {
+  display: block;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  transition: width 0.15s;
+}
+
+.metric--highlight .metric__fill {
+  background: var(--color-signal);
+}

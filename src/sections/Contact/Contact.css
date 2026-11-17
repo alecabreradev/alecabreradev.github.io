@@ -1,0 +1,17 @@
+.contact__text {
+  max-width: 36em;
+  margin: 0;
+}
+
+.contact__email {
+  margin: 6px 0 14px;
+  font: 500 clamp(20px, 3.4vw, 30px) var(--font-display);
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}

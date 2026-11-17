@@ -1,0 +1,59 @@
+/*
+ * Design tokens. Light theme by default; dark theme follows the system setting
+ * until the visitor picks one with the theme button (data-theme on <html>).
+ */
+:root {
+  /* Colors */
+  --color-bg: #f4f6fb;
+  --color-surface: #ffffff;
+  --color-border: #d8ddeb;
+  --color-text: #151a2d;
+  --color-text-muted: #596280;
+  --color-accent: #4338ca;
+  --color-accent-soft: #e7e9fb;
+  --color-signal: #0d9488;
+  --color-warning: #c2410c;
+
+  /* Typography */
+  --font-display: "Sora", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* Shape and layout */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+  --content-width: 1040px;
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #0e1120;
+    --color-surface: #161a2e;
+    --color-border: #2a3052;
+    --color-text: #e6e8f5;
+    --color-text-muted: #9aa1c2;
+    --color-accent: #a3a4fc;
+    --color-accent-soft: #252a50;
+    --color-signal: #2dd4bf;
+    --color-warning: #fb923c;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #0e1120;
+  --color-surface: #161a2e;
+  --color-border: #2a3052;
+  --color-text: #e6e8f5;
+  --color-text-muted: #9aa1c2;
+  --color-accent: #a3a4fc;
+  --color-accent-soft: #252a50;
+  --color-signal: #2dd4bf;
+  --color-warning: #fb923c;
+  color-scheme: dark;
+}

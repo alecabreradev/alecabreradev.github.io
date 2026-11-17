@@ -1,0 +1,361 @@
+.corte-arte-demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+
+.corte-arte-demo__hint {
+  flex-basis: 100%;
+  margin: 0;
+}
+
+/*
+ * Phone: always light, like the real Android app, whatever the page theme.
+ */
+.phone {
+  --phone-bg: #fafafa;
+  --phone-text: #1b1b1f;
+  --phone-muted: #5f5f68;
+  --phone-border: #d4d4da;
+  --phone-card: #e9e9ee;
+  --phone-error: #c62828;
+
+  position: relative;
+  flex: none;
+  width: 250px;
+  height: 480px;
+  overflow: hidden;
+  border: 9px solid #1b1b1f;
+  border-radius: 30px;
+  background: var(--phone-bg);
+  color: var(--phone-text);
+  font:
+    13px/1.4 Roboto,
+    system-ui,
+    sans-serif;
+}
+
+.phone__screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone h4 {
+  margin: 0 0 10px;
+  font:
+    500 17px Roboto,
+    system-ui,
+    sans-serif;
+}
+
+.phone input,
+.phone select {
+  width: 100%;
+  padding: 7px 8px;
+  border: 1px solid var(--phone-border);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--phone-text);
+}
+
+.phone label {
+  display: block;
+  margin: 7px 0 2px;
+  color: var(--phone-muted);
+  font-size: 11px;
+}
+
+.phone .is-invalid {
+  border-color: var(--phone-error);
+}
+
+.phone__centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 9px;
+  height: 100%;
+  padding: 22px;
+  text-align: center;
+}
+
+.phone__logo {
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 6px;
+  border: 3px solid var(--phone-text);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 4px var(--phone-bg),
+    inset 0 0 0 6px var(--phone-text);
+  font:
+    600 24px Georgia,
+    serif;
+}
+
+.phone__title {
+  margin: 0;
+}
+
+.phone__subtitle {
+  margin: 0;
+  color: var(--phone-muted);
+  font-size: 12px;
+}
+
+.phone__app-bar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #1b1b1f;
+  color: #fff;
+  font-size: 16px;
+}
+
+.phone__app-bar button {
+  padding: 0 4px;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.phone__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.phone__button {
+  width: 100%;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: #1b1b1f;
+  color: #fff;
+  font-weight: 500;
+}
+
+.phone__button--small {
+  width: auto;
+  padding: 4px 12px;
+  font-size: 12px;
+}
+
+.phone__link {
+  border: 0;
+  background: none;
+  color: var(--phone-muted);
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.phone__field {
+  min-width: 0;
+}
+
+.phone__error {
+  margin: 2px 0 0;
+  color: var(--phone-error);
+  font-size: 11px;
+}
+
+.phone__actions {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0 8px;
+}
+
+.phone__muted {
+  margin: 0;
+  color: var(--phone-muted);
+}
+
+.phone__note {
+  font-size: 11px;
+}
+
+.phone__card {
+  margin-bottom: 9px;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--phone-card);
+}
+
+.phone__card strong {
+  font-weight: 500;
+}
+
+.phone__card ul {
+  margin: 4px 0 0;
+  padding-left: 16px;
+  color: var(--phone-muted);
+  font-size: 12px;
+}
+
+.phone__card-image {
+  height: 52px;
+  margin: -2px 0 8px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, #8d8d96, #cfcfd6 55%, #a2a2ab);
+}
+
+.phone__card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.phone__card-actions button {
+  padding: 2px 6px;
+  border: 0;
+  background: none;
+  font-size: 15px;
+}
+
+.phone__tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: -12px -12px 10px;
+  border-bottom: 1px solid var(--phone-border);
+}
+
+.phone__tabs button {
+  padding: 8px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font-weight: 500;
+}
+
+.phone__tabs button[aria-selected="true"] {
+  border-color: var(--phone-text);
+}
+
+.phone__drawer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.phone__drawer nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 76%;
+  padding: 14px 10px;
+  background: var(--phone-bg);
+  font-size: 14px;
+}
+
+.phone__drawer nav p {
+  margin: 0 6px 8px;
+  color: var(--phone-muted);
+}
+
+.phone__drawer nav button {
+  padding: 9px 12px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: none;
+  text-align: left;
+}
+
+.phone__drawer nav button[aria-current="page"] {
+  background: #e8def8;
+  font-weight: 500;
+}
+
+.phone__toast {
+  position: absolute;
+  right: 10px;
+  bottom: 12px;
+  left: 10px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  background: #323238;
+  color: #fff;
+  font-size: 12px;
+}
+
+.phone__map {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--phone-border);
+  border-radius: 8px;
+}
+
+/* API log next to the phone */
+.api-log {
+  flex: 1;
+  align-self: stretch;
+  min-width: 200px;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  font: 13px var(--font-mono);
+}
+
+.api-log__title {
+  margin: 0 0 8px;
+  color: var(--color-text-muted);
+}
+
+.api-log__list {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.api-log__entry {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+  color: var(--color-text-muted);
+}
+
+.api-log__entry:first-child {
+  color: var(--color-text);
+}
+
+.api-log__path {
+  overflow-wrap: anywhere;
+}
+
+.api-log__method {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.api-log__method--post,
+.api-log__method--put {
+  color: var(--color-signal);
+}
+
+.api-log__method--delete {
+  color: var(--color-warning);
+}
+
+.api-log__status {
+  font-variant-numeric: tabular-nums;
+}

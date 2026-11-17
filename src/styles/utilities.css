@@ -1,0 +1,60 @@
+/* Shared building blocks used by several sections */
+
+.container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.tech-stack {
+  color: var(--color-text-muted);
+  font: 13px var(--font-mono);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.button {
+  display: inline-block;
+  padding: 9px 18px;
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button--outline {
+  background: none;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.button--outline:hover {
+  border-color: var(--color-accent);
+}
+
+.chip-button {
+  padding: 1px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.chip-button:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text);
+}

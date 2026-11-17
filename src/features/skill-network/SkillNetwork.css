@@ -1,0 +1,126 @@
+.skill-network {
+  padding: 16px;
+}
+
+.skill-network__help {
+  margin: 0 0 8px;
+}
+
+.skill-network__columns {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2px 6px;
+  color: var(--color-text-muted);
+  font: 12px var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+.skill-network__canvas {
+  width: 100%;
+  min-width: 0;
+}
+
+.skill-network__canvas svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+/* Edges */
+.skill-network__edge {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 1.4;
+  transition:
+    stroke 0.2s,
+    opacity 0.2s;
+}
+
+/* Nodes */
+.skill-network__node {
+  cursor: pointer;
+  outline: none;
+}
+
+.skill-network__node rect {
+  fill: var(--color-bg);
+  stroke: var(--color-border);
+  stroke-width: 1.2;
+  transition:
+    fill 0.2s,
+    stroke 0.2s;
+}
+
+.skill-network__node text {
+  fill: var(--color-text);
+  font-family: var(--font-body);
+  dominant-baseline: central;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.skill-network__node--project rect {
+  stroke: var(--color-accent);
+}
+
+.skill-network__node:focus-visible rect {
+  stroke: var(--color-accent);
+  stroke-width: 3;
+}
+
+/* Highlight the active node and everything connected to it */
+.is-dimmed .skill-network__edge {
+  opacity: 0.25;
+}
+
+.is-dimmed .skill-network__node {
+  opacity: 0.35;
+}
+
+.is-dimmed .skill-network__edge.is-related {
+  opacity: 1;
+  stroke: var(--color-accent);
+  stroke-width: 2.2;
+}
+
+.is-dimmed .skill-network__node.is-related {
+  opacity: 1;
+}
+
+.is-dimmed .skill-network__node.is-related rect {
+  fill: var(--color-accent-soft);
+  stroke: var(--color-accent);
+}
+
+.skill-network__node.is-selected rect {
+  fill: var(--color-accent);
+}
+
+.is-dimmed .skill-network__node.is-selected rect {
+  fill: var(--color-accent);
+}
+
+.skill-network__node.is-selected text {
+  fill: var(--color-bg);
+}
+
+.skill-network__node.is-lit rect {
+  fill: var(--color-accent-soft);
+  stroke: var(--color-signal);
+}
+
+.skill-network__pulse {
+  fill: var(--color-signal);
+}
+
+.skill-network__description {
+  min-height: 1.6em;
+  margin: 10px 0 0;
+  color: var(--color-text-muted);
+  font-size: 15px;
+}
+
+.skill-network__description strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
