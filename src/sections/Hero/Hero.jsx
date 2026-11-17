@@ -8,10 +8,6 @@ export default function Hero({ onOpenProject }) {
     <div className="hero">
       <h1 className="hero__title">{t("hero.title")}</h1>
       <p className="hero__intro">{t("hero.intro")}</p>
-      <p className="hero__status">
-        <span className="hero__status-dot" aria-hidden="true" />
-        {t("hero.availability")}
-      </p>
       <SkillNetwork onOpenProject={onOpenProject} />
     </div>
   );

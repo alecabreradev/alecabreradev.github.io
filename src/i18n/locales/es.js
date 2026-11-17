@@ -1,7 +1,7 @@
 /** Spanish texts. Keys must match en.js. */
 const es = {
   meta: {
-    title: "Alejandro Cabrera Mateo · Software, datos e IA",
+    title: "Alejandro Cabrera Mateo · Desarrollador junior",
   },
   nav: {
     label: "Navegación principal",
@@ -14,10 +14,9 @@ const es = {
     theme: "Tema",
   },
   hero: {
-    title: "He construido software que entiende datos.",
+    title: "Desarrollador junior de web, móvil y datos.",
     intro:
-      "Soy Alejandro, estudiante de último curso de Ingeniería Informática en la Universidad de Cádiz. Durante la carrera he construido varios proyectos de los que he aprendido mucho, desde aplicaciones móviles y web de principio a fin hasta modelos de machine learning con datos reales, un campo en el que estoy profundizando ahora para desarrollar mi Trabajo de Fin de Grado.",
-    availability: "Busco puesto junior o de prácticas · posibilidad de convenio con la universidad",
+      "Soy Alejandro Cabrera, desarrollador junior con formación en Ingeniería Informática en la Universidad de Cádiz. He construido aplicaciones móviles y web de principio a fin, desde la API y la base de datos hasta la interfaz, y modelos de machine learning con datos reales. Aquí puedes probar mis proyectos.",
   },
   network: {
     label: "Red de habilidades",
@@ -36,14 +35,14 @@ const es = {
   about: {
     title: "Sobre mí",
     paragraphs: [
-      "Estudio Ingeniería Informática (Sistemas de Información) en la Universidad de Cádiz. El curso 2025–26 lo hice de Erasmus+ estudiando Computer Science en la Universidad de Wrocław (Uniwersytet Wrocławski), con asignaturas en inglés de ingeniería de datos, arquitecturas de software y paradigmas de computación.",
-      "Me gusta moverme entre el desarrollo, los datos y la IA, y me importa que lo que hago funcione de verdad: resultados correctos, datos bien separados y código que otra persona pueda entender. Busco mi primer puesto, junior o en prácticas, con posibilidad de convenio con la universidad.",
+      "Mi formación es en Ingeniería Informática (Sistemas de Información) en la Universidad de Cádiz. Durante mi Erasmus+ en la Universidad de Wrocław (Polonia) estudié en un entorno internacional y en otro idioma, un reto que me enseñó a adaptarme rápido y a resolver problemas por mi cuenta.",
+      "Me gusta moverme entre el desarrollo, los datos y la IA. Me importa entender bien el problema antes de programar y que lo que entrego funcione de verdad: resultados correctos y código que otra persona pueda entender. Busco incorporarme a un equipo donde aportar y seguir creciendo.",
     ],
     facts: [
-      { term: "Estudios", value: "Ingeniería Informática · Universidad de Cádiz" },
+      { term: "Formación", value: "Ingeniería Informática · Universidad de Cádiz" },
       { term: "Erasmus+", value: "Computer Science · Universidad de Wrocław, Polonia · 2025–26" },
       { term: "Idiomas", value: "Español nativo · inglés profesional" },
-      { term: "Base", value: "Andalucía, España" },
+      { term: "Base", value: "Trebujena, Cádiz" },
     ],
   },
   projects: {
@@ -133,12 +132,6 @@ const es = {
     title: "Trayectoria",
     items: [
       {
-        date: "Ahora",
-        title: "Buscando un puesto junior o de prácticas",
-        text: "Con posibilidad de convenio de prácticas con la universidad.",
-        upcoming: true,
-      },
-      {
         date: "2025 – 2026",
         title: "Erasmus+ · Computer Science · Universidad de Wrocław",
         text: "Asignaturas en inglés de ingeniería de datos, arquitecturas de software y paradigmas de computación.",
@@ -152,7 +145,7 @@ const es = {
   },
   contact: {
     title: "Hablemos",
-    text: "Si tienes una vacante junior o de prácticas, o quieres hablar de software, escríbeme a este correo.",
+    text: "Si buscas a alguien para tu equipo o quieres hablar de software, escríbeme a este correo.",
     copy: "Copiar email",
     copied: "Email copiado",
   },

@@ -1,7 +1,7 @@
 /** English texts. Keys must match es.js. */
 const en = {
   meta: {
-    title: "Alejandro Cabrera Mateo · Software, data and AI",
+    title: "Alejandro Cabrera Mateo · Junior developer",
   },
   nav: {
     label: "Main navigation",
@@ -14,11 +14,9 @@ const en = {
     theme: "Theme",
   },
   hero: {
-    title: "I’ve built software that understands data.",
+    title: "Junior developer for web, mobile and data.",
     intro:
-      "I’m Alejandro, a final-year Computer Engineering student at the University of Cádiz. During my degree I’ve built several projects that taught me a lot, from mobile and web apps built end to end to machine learning models with real data, an area I’m now exploring further as the basis for my bachelor’s thesis.",
-    availability:
-      "Looking for a junior or internship role · university internship agreement possible",
+      "I’m Alejandro Cabrera, a junior developer with a background in Computer Engineering at the University of Cádiz. I’ve built mobile and web apps end to end, from the API and the database to the interface, and machine learning models with real data. You can try my projects here.",
   },
   network: {
     label: "Skill network",
@@ -37,14 +35,14 @@ const en = {
   about: {
     title: "About me",
     paragraphs: [
-      "I study Computer Engineering (Information Systems) at the University of Cádiz. In 2025–26 I studied Computer Science at the University of Wrocław (Uniwersytet Wrocławski) on Erasmus+, taking courses in English on data engineering, software architectures and computing paradigms.",
-      "I like moving between development, data and AI, and I care that what I build really works: correct results, well-separated data and code someone else can follow. I’m looking for my first role, junior or internship, with the option of a university internship agreement.",
+      "My background is in Computer Engineering (Information Systems) at the University of Cádiz. During my Erasmus+ at the University of Wrocław (Poland) I studied in an international environment and in another language, a challenge that taught me to adapt quickly and solve problems on my own.",
+      "I like moving between development, data and AI. I care about understanding the problem before writing code and about delivering things that really work: correct results and code someone else can follow. I’m looking to join a team where I can contribute and keep growing.",
     ],
     facts: [
-      { term: "Studies", value: "Computer Engineering · University of Cádiz" },
+      { term: "Education", value: "Computer Engineering · University of Cádiz" },
       { term: "Erasmus+", value: "Computer Science · University of Wrocław, Poland · 2025–26" },
       { term: "Languages", value: "Native Spanish · professional English" },
-      { term: "Based in", value: "Andalusia, Spain" },
+      { term: "Based in", value: "Trebujena, Cádiz, Spain" },
     ],
   },
   projects: {
@@ -133,12 +131,6 @@ const en = {
     title: "Path so far",
     items: [
       {
-        date: "Now",
-        title: "Looking for a junior or internship role",
-        text: "With the option of a university internship agreement.",
-        upcoming: true,
-      },
-      {
         date: "2025 – 2026",
         title: "Erasmus+ · Computer Science · University of Wrocław",
         text: "Courses in English on data engineering, software architectures and computing paradigms.",
@@ -152,7 +144,7 @@ const en = {
   },
   contact: {
     title: "Let’s talk",
-    text: "If you have a junior or internship opening, or want to talk software, write to me here.",
+    text: "If you’re looking for someone to join your team or want to talk software, write to me here.",
     copy: "Copy email",
     copied: "Email copied",
   },
