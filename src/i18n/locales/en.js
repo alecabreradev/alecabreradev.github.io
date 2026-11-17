@@ -130,32 +130,14 @@ const en = {
   },
   timeline: {
     title: "Path so far",
-    openProject: "See project",
-    kinds: { project: "Project", education: "Education" },
     items: [
       {
-        date: "2026",
-        kind: "project",
-        project: "no2",
-        title: "Madrid NO₂ forecast",
-        text: "My first machine learning model on real data: it predicts high-pollution days one day ahead and beats the baseline by 28%.",
-      },
-      {
         date: "2025 – 2026",
-        kind: "education",
         title: "Erasmus+ · Computer Science · University of Wrocław",
         text: "A year studying in English in an international environment, a challenge that taught me to adapt quickly and solve problems on my own.",
       },
       {
-        date: "2024",
-        kind: "project",
-        project: "corteArte",
-        title: "Corte & Arte",
-        text: "My first complete project: a Kotlin Android app, a React website and my own Node.js + MongoDB REST API sharing the bookings.",
-      },
-      {
         date: "2022 – now",
-        kind: "education",
         title: "Computer Engineering · University of Cádiz",
         text: "Information Systems: AI, machine learning, data, algorithms and databases.",
       },

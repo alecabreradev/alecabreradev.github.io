@@ -32,7 +32,7 @@ export default function App() {
           onOpenProject={openProject}
           theme={theme}
         />
-        <Timeline onOpenProject={openProject} />
+        <Timeline />
         <Contact />
       </main>
       <SiteFooter />

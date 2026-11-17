@@ -131,32 +131,14 @@ const es = {
   },
   timeline: {
     title: "Trayectoria",
-    openProject: "Ver proyecto",
-    kinds: { project: "Proyecto", education: "Formación" },
     items: [
       {
-        date: "2026",
-        kind: "project",
-        project: "no2",
-        title: "Predicción de NO₂ en Madrid",
-        text: "Primer modelo de machine learning con datos reales: predice con un día de antelación los días de contaminación alta y mejora en un 28 % a la referencia.",
-      },
-      {
         date: "2025 – 2026",
-        kind: "education",
         title: "Erasmus+ · Computer Science · Universidad de Wrocław",
         text: "Un año estudiando en inglés en un entorno internacional, un reto que me enseñó a adaptarme rápido y a resolver problemas por mi cuenta.",
       },
       {
-        date: "2024",
-        kind: "project",
-        project: "corteArte",
-        title: "Corte & Arte",
-        text: "Mi primer proyecto completo: app Android en Kotlin, web en React y una API REST propia con Node.js y MongoDB que comparten las reservas.",
-      },
-      {
         date: "2022 – hoy",
-        kind: "education",
         title: "Ingeniería Informática · Universidad de Cádiz",
         text: "Sistemas de Información: IA, machine learning, datos, algoritmos y bases de datos.",
       },
