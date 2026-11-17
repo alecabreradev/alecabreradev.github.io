@@ -112,11 +112,9 @@ const es = {
         kotlin: "La app Android de Corte & Arte: pantallas, navegación y llamadas a la API.",
         javascript: "La API y la web de Corte & Arte, y este portfolio.",
         compose:
-          "Las pantallas de la app Android de Corte & Arte: login, salas, reservas, panel de administración y mapa.",
-        retrofit: "Las peticiones de la app Android a la API REST de reservas de Corte & Arte.",
+          "Las pantallas de la app Android de Corte & Arte (login, salas, reservas, administración y mapa), con Retrofit para hablar con la API.",
         react: "La web de Corte & Arte y este portfolio, organizado en componentes y con tests.",
-        node: "El servidor de la API que comparten la app y la web de Corte & Arte.",
-        express: "Las rutas CRUD de /api/reservas, con validación y CORS.",
+        node: "La API que comparten la app y la web de Corte & Arte: rutas CRUD de /api/reservas con validación y CORS.",
         rest: "Una sola API REST para la app Android y la web de Corte & Arte.",
         htmlcss:
           "La web de Corte & Arte y este portfolio, con CSS propio, tema claro y oscuro y diseño adaptable.",
@@ -125,12 +123,9 @@ const es = {
         xgboost: "Uno de los modelos comparados en la predicción de NO₂ (PR-AUC 0,78).",
         pandas:
           "Unir las mediciones diarias de la estación con la meteorología y crear variables de días anteriores.",
-        numpy: "Cálculos numéricos y métricas en la predicción de NO₂.",
         mongodb: "La base de datos de reservas de Corte & Arte, con Mongoose y MongoDB Atlas.",
         firebase: "Inicio de sesión y recuperación de contraseña en la app de Corte & Arte.",
         git: "Control de versiones de todos mis proyectos, publicados en GitHub.",
-        jupyter: "El notebook del proyecto de NO₂, con el análisis explicado paso a paso.",
-        figma: "El diseño de las pantallas de Corte & Arte antes de programarlas.",
       },
     },
   },
@@ -163,6 +158,8 @@ const es = {
   },
   footer: {
     backToTop: "Volver arriba",
+    builtWith: "Hecho con React y Vite",
+    label: "Enlaces del pie de página",
     source: "Código fuente",
   },
 };

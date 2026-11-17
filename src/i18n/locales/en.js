@@ -112,11 +112,9 @@ const en = {
         kotlin: "The Corte & Arte Android app: screens, navigation and API calls.",
         javascript: "The Corte & Arte API and website, and this portfolio.",
         compose:
-          "The screens of the Corte & Arte Android app: login, rooms, bookings, admin panel and map.",
-        retrofit: "The requests from the Android app to the Corte & Arte booking REST API.",
+          "The screens of the Corte & Arte Android app (login, rooms, bookings, admin and map), using Retrofit to talk to the API.",
         react: "The Corte & Arte website and this portfolio, split into components and tested.",
-        node: "The server of the API shared by the Corte & Arte app and website.",
-        express: "The CRUD routes of /api/reservas, with validation and CORS.",
+        node: "The API shared by the Corte & Arte app and website: CRUD routes for /api/reservas with validation and CORS.",
         rest: "A single REST API for both the Android app and the Corte & Arte website.",
         htmlcss:
           "The Corte & Arte website and this portfolio, with hand-written CSS, light and dark themes and a responsive layout.",
@@ -125,12 +123,9 @@ const en = {
         xgboost: "One of the models compared in the NO₂ forecast (PR-AUC 0.78).",
         pandas:
           "Joining the station’s daily readings with the weather and building previous-day features.",
-        numpy: "Numerical work and metrics in the NO₂ forecast.",
         mongodb: "The Corte & Arte bookings database, with Mongoose and MongoDB Atlas.",
         firebase: "Sign-in and password recovery in the Corte & Arte app.",
         git: "Version control for all my projects, published on GitHub.",
-        jupyter: "The notebook of the NO₂ project, with the analysis explained step by step.",
-        figma: "Designing the Corte & Arte screens before coding them.",
       },
     },
   },
@@ -163,6 +158,8 @@ const en = {
   },
   footer: {
     backToTop: "Back to top",
+    builtWith: "Built with React and Vite",
+    label: "Footer links",
     source: "Source code",
   },
 };

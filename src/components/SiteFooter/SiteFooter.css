@@ -1,14 +1,71 @@
 .site-footer {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  padding-block: 48px 36px;
-  color: var(--color-text-muted);
-  font-size: 14px;
+  gap: 16px;
+  margin-top: 48px;
+  padding-block: 24px 36px;
+  border-top: 1px solid var(--color-border);
 }
 
-.site-footer__links {
+.site-footer__info {
   display: flex;
-  gap: 16px;
+  flex-direction: column;
+}
+
+.site-footer__name {
+  font: 600 15px var(--font-display);
+}
+
+.site-footer__meta {
+  color: var(--color-text-muted);
+  font: 13px var(--font-mono);
+}
+
+.site-footer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.site-footer__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    border-color 0.15s,
+    color 0.15s,
+    transform 0.15s;
+}
+
+.site-footer__button:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.site-footer__button--top {
+  border-color: transparent;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+
+.site-footer__button--top:hover {
+  border-color: var(--color-accent);
+}
+
+.site-footer__button--top:hover svg {
+  transform: translateY(-2px);
+}
+
+.site-footer__button svg {
+  transition: transform 0.15s;
 }

@@ -21,7 +21,6 @@ export const TOOLS = [
   },
   { id: "java", name: "Java", mark: "Jv", category: "lang", contexts: ["degree"] },
   { id: "cpp", name: "C/C++", mark: "C++", category: "lang", contexts: ["degree"] },
-  { id: "typescript", name: "TypeScript", mark: "TS", category: "lang", contexts: ["degree"] },
   { id: "sql", name: "SQL", mark: "SQL", category: "lang", contexts: ["degree"] },
 
   {
@@ -31,10 +30,8 @@ export const TOOLS = [
     category: "web",
     contexts: ["corteArte"],
   },
-  { id: "retrofit", name: "Retrofit", mark: "Rf", category: "web", contexts: ["corteArte"] },
   { id: "react", name: "React", mark: "Re", category: "web", contexts: ["corteArte", "portfolio"] },
-  { id: "node", name: "Node.js", mark: "No", category: "web", contexts: ["corteArte"] },
-  { id: "express", name: "Express.js", mark: "Ex", category: "web", contexts: ["corteArte"] },
+  { id: "node", name: "Node.js · Express", mark: "No", category: "web", contexts: ["corteArte"] },
   { id: "rest", name: "REST APIs", mark: "API", category: "web", contexts: ["corteArte"] },
   {
     id: "htmlcss",
@@ -46,13 +43,12 @@ export const TOOLS = [
 
   { id: "sklearn", name: "Scikit-learn", mark: "SK", category: "ai", contexts: ["no2"] },
   { id: "xgboost", name: "XGBoost", mark: "XG", category: "ai", contexts: ["no2"] },
-  { id: "pandas", name: "Pandas", mark: "Pd", category: "ai", contexts: ["no2"] },
-  { id: "numpy", name: "NumPy", mark: "Np", category: "ai", contexts: ["no2"] },
-  { id: "tensorflow", name: "TensorFlow", mark: "TF", category: "ai", contexts: ["degree"] },
+  { id: "pandas", name: "Pandas · NumPy", mark: "Pd", category: "ai", contexts: ["no2"] },
   { id: "pytorch", name: "PyTorch", mark: "PT", category: "ai", contexts: ["degree"] },
 
   { id: "mongodb", name: "MongoDB", mark: "Mg", category: "db", contexts: ["corteArte"] },
   { id: "firebase", name: "Firebase", mark: "Fb", category: "db", contexts: ["corteArte"] },
+  { id: "postgresql", name: "PostgreSQL", mark: "PG", category: "db", contexts: ["degree"] },
   {
     id: "git",
     name: "Git · GitHub",
@@ -60,14 +56,7 @@ export const TOOLS = [
     category: "db",
     contexts: ["corteArte", "no2", "portfolio"],
   },
-  { id: "jupyter", name: "Jupyter", mark: "Jp", category: "db", contexts: ["no2"] },
-  { id: "figma", name: "Figma", mark: "Fg", category: "db", contexts: ["corteArte"] },
-  { id: "postgresql", name: "PostgreSQL", mark: "PG", category: "db", contexts: ["degree"] },
-  { id: "mysql", name: "MySQL", mark: "My", category: "db", contexts: ["degree"] },
-  { id: "oracle", name: "Oracle SQL", mark: "Or", category: "db", contexts: ["degree"] },
   { id: "docker", name: "Docker", mark: "Dk", category: "db", contexts: ["degree"] },
-  { id: "linux", name: "Linux", mark: "Lx", category: "db", contexts: ["degree"] },
-  { id: "postman", name: "Postman", mark: "PM", category: "db", contexts: ["degree"] },
 ];
 
 /** Tools of one category ("all" keeps every tool). */
