@@ -11,6 +11,7 @@ const es = {
     contact: "Contacto",
     switchLanguage: "Switch to English",
     toggleTheme: "Cambiar tema claro u oscuro",
+    role: "Desarrollador junior",
     menu: "Menú",
   },
   hero: {

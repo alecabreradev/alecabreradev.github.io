@@ -1,12 +1,25 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useLanguage } from "../../i18n/context.js";
 import { PROFILE } from "../../data/profile.js";
 import "./SiteHeader.css";
 
 const NAV_ITEMS = ["about", "projects", "timeline", "contact"];
 const COMPACT_AFTER_PX = 24;
-/** Desktop: the floating bar fades in gradually over this many pixels of scroll. */
-const FADE_PX = 160;
+
+function ExternalIcon() {
+  return (
+    <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true">
+      <path
+        d="M5 11 11 5M6 5h5v5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 function GlobeIcon() {
   return (
@@ -66,10 +79,30 @@ function useActiveSection(ids) {
   return active;
 }
 
+/** Position of the sliding marker under the active link of the pill. */
+function useIndicator(navRef, active, language) {
+  const [box, setBox] = useState(null);
+  useLayoutEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return undefined;
+    const measure = () => {
+      const link = active && nav.querySelector(`[href="#${active}"]`);
+      setBox(link ? { left: link.offsetLeft, width: link.offsetWidth } : null);
+    };
+    measure();
+    if (typeof ResizeObserver === "undefined") return undefined;
+    const observer = new ResizeObserver(measure);
+    observer.observe(nav);
+    return () => observer.disconnect();
+  }, [navRef, active, language]);
+  return box;
+}
+
 /**
- * Header with an "AC" monogram. Desktop: muted links and icon buttons; on scroll the
- * bar gradually turns into a floating rounded panel. Phones: a full-width bar with
- * the links in a dropdown, so the hero stays the first thing you see.
+ * Desktop: name and role on the left, a floating pill with the sections in the
+ * centre (it stays on screen, with a marker sliding to the current section) and
+ * LinkedIn/GitHub plus language and theme on the right, which scroll away.
+ * Phones: a full-width bar with an "AC" monogram and the sections in a dropdown.
  */
 export default function SiteHeader({ theme, onToggleTheme }) {
   const { t, language, toggleLanguage } = useLanguage();
@@ -77,16 +110,12 @@ export default function SiteHeader({ theme, onToggleTheme }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const active = useActiveSection(NAV_ITEMS);
   const headerRef = useRef(null);
+  const navRef = useRef(null);
   const menuButtonRef = useRef(null);
+  const indicator = useIndicator(navRef, active, language);
 
   useEffect(() => {
-    const onScroll = () => {
-      setCompact(window.scrollY > COMPACT_AFTER_PX);
-      headerRef.current?.style.setProperty(
-        "--scroll-p",
-        Math.min(1, window.scrollY / FADE_PX).toFixed(3),
-      );
-    };
+    const onScroll = () => setCompact(window.scrollY > COMPACT_AFTER_PX);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -114,16 +143,33 @@ export default function SiteHeader({ theme, onToggleTheme }) {
 
   return (
     <header className="site-header" ref={headerRef} data-compact={compact || undefined}>
-      <a className="site-header__brand" href="#top" aria-label={PROFILE.name} title={PROFILE.name}>
+      <a className="site-header__identity" href="#top">
+        <span className="site-header__name">Alejandro Cabrera</span>
+        <span className="site-header__role">{t("nav.role")}</span>
+      </a>
+      <a
+        className="site-header__monogram"
+        href="#top"
+        aria-label={PROFILE.name}
+        title={PROFILE.name}
+      >
         AC
       </a>
 
       <nav
         id="site-menu"
+        ref={navRef}
         className="site-header__nav"
         aria-label={t("nav.label")}
         data-open={menuOpen || undefined}
       >
+        {indicator && (
+          <span
+            className="site-header__indicator"
+            aria-hidden="true"
+            style={{ transform: `translateX(${indicator.left}px)`, width: indicator.width }}
+          />
+        )}
         {NAV_ITEMS.map((id) => (
           <a
             key={id}
@@ -138,6 +184,23 @@ export default function SiteHeader({ theme, onToggleTheme }) {
       </nav>
 
       <div className="site-header__tools">
+        <a
+          className="site-header__external"
+          href={PROFILE.links.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn <ExternalIcon />
+        </a>
+        <a
+          className="site-header__external"
+          href={PROFILE.links.github}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub <ExternalIcon />
+        </a>
+        <span className="site-header__divider" aria-hidden="true" />
         <button
           type="button"
           className="icon-button"
