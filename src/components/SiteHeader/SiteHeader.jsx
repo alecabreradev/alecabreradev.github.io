@@ -5,6 +5,8 @@ import "./SiteHeader.css";
 
 const NAV_ITEMS = ["about", "projects", "timeline", "contact"];
 const COMPACT_AFTER_PX = 24;
+/** Desktop: the floating bar fades in gradually over this many pixels of scroll. */
+const FADE_PX = 160;
 
 function GlobeIcon() {
   return (
@@ -65,8 +67,9 @@ function useActiveSection(ids) {
 }
 
 /**
- * Header: discreet on desktop (muted links, icon buttons, compact once you scroll)
- * and a dropdown menu on phones so the hero stays the first thing you see.
+ * Header with an "AC" monogram. Desktop: muted links and icon buttons; on scroll the
+ * bar gradually turns into a floating rounded panel. Phones: a full-width bar with
+ * the links in a dropdown, so the hero stays the first thing you see.
  */
 export default function SiteHeader({ theme, onToggleTheme }) {
   const { t, language, toggleLanguage } = useLanguage();
@@ -77,7 +80,13 @@ export default function SiteHeader({ theme, onToggleTheme }) {
   const menuButtonRef = useRef(null);
 
   useEffect(() => {
-    const onScroll = () => setCompact(window.scrollY > COMPACT_AFTER_PX);
+    const onScroll = () => {
+      setCompact(window.scrollY > COMPACT_AFTER_PX);
+      headerRef.current?.style.setProperty(
+        "--scroll-p",
+        Math.min(1, window.scrollY / FADE_PX).toFixed(3),
+      );
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -105,8 +114,8 @@ export default function SiteHeader({ theme, onToggleTheme }) {
 
   return (
     <header className="site-header" ref={headerRef} data-compact={compact || undefined}>
-      <a className="site-header__brand" href="#top">
-        {PROFILE.name}
+      <a className="site-header__brand" href="#top" aria-label={PROFILE.name} title={PROFILE.name}>
+        AC
       </a>
 
       <nav
