@@ -44,7 +44,7 @@ const es = {
       { term: "Formación", value: "Ingeniería Informática · Universidad de Cádiz" },
       { term: "Erasmus+", value: "Computer Science · Universidad de Wrocław, Polonia · 2025–26" },
       { term: "Idiomas", value: "Español nativo · inglés profesional" },
-      { term: "Base", value: "Cádiz, España" },
+      { term: "Localización", value: "Cádiz, España" },
     ],
   },
   projects: {

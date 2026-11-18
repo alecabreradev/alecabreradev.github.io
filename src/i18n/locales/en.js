@@ -7,7 +7,7 @@ const en = {
     label: "Main navigation",
     about: "About",
     projects: "Projects",
-    timeline: "Path",
+    timeline: "Background",
     contact: "Contact",
     switchLanguage: "Cambiar a español",
     toggleTheme: "Toggle light or dark theme",
@@ -130,7 +130,7 @@ const en = {
     },
   },
   timeline: {
-    title: "Path so far",
+    title: "Background",
     items: [
       {
         date: "2025 – 2026",
