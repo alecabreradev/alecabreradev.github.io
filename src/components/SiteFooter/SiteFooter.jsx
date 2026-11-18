@@ -20,21 +20,6 @@ function edgePath(y) {
   return `M${HUB.x} ${HUB.y} C${midX} ${HUB.y} ${midX} ${y} ${NODE_X} ${y}`;
 }
 
-function ArrowUpIcon() {
-  return (
-    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
-      <path
-        d="M8 13V3M3.5 7.5 8 3l4.5 4.5"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 /**
  * Closing of the page: real numbers about this page (measured in the visitor's browser)
  * and my links drawn as a small network, like the skill network at the top.
@@ -107,14 +92,6 @@ export default function SiteFooter() {
             );
           })}
         </nav>
-      </div>
-
-      <div className="site-footer__bottom">
-        <span className="site-footer__email">{PROFILE.email}</span>
-        <a className="site-footer__top" href="#top">
-          {t("footer.backToTop")}
-          <ArrowUpIcon />
-        </a>
       </div>
     </footer>
   );

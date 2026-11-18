@@ -3,6 +3,7 @@ import useTheme from "./hooks/useTheme.js";
 import { PROJECTS } from "./data/profile.js";
 import { scrollToId } from "./utils/motion.js";
 import SiteHeader from "./components/SiteHeader/SiteHeader.jsx";
+import BackToTop from "./components/BackToTop/BackToTop.jsx";
 import SiteFooter from "./components/SiteFooter/SiteFooter.jsx";
 import Hero from "./sections/Hero/Hero.jsx";
 import About from "./sections/About/About.jsx";
@@ -36,6 +37,7 @@ export default function App() {
         <Contact />
       </main>
       <SiteFooter />
+      <BackToTop />
     </div>
   );
 }
