@@ -355,6 +355,10 @@
     background: var(--color-accent-soft);
   }
 
+  .site-header__link .stable-text {
+    justify-items: start;
+  }
+
   .site-header__link[aria-current]::after {
     content: "";
     position: absolute;

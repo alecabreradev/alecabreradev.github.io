@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useLanguage } from "../../i18n/context.js";
 import { PROFILE } from "../../data/profile.js";
 import { scrollToTop } from "../../utils/motion.js";
+import StableText from "../StableText/StableText.jsx";
 import "./SiteHeader.css";
 
 const NAV_ITEMS = ["about", "projects", "timeline", "contact"];
@@ -188,7 +189,7 @@ export default function SiteHeader({ theme, onToggleTheme }) {
               aria-current={active === id ? "location" : undefined}
               onClick={() => setMenuOpen(false)}
             >
-              {t(`nav.${id}`)}
+              <StableText k={`nav.${id}`} />
             </a>
           ))}
         </nav>

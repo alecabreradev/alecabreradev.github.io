@@ -3,6 +3,7 @@ import { useLanguage } from "../../i18n/context.js";
 import { PROFILE } from "../../data/profile.js";
 import Section from "../../components/Section/Section.jsx";
 import "./Contact.css";
+import StableText from "../../components/StableText/StableText.jsx";
 
 const COPIED_MS = 1800;
 
@@ -38,7 +39,10 @@ export default function Contact() {
       </p>
       <div className="contact__actions">
         <button type="button" className="button" onClick={copyEmail}>
-          {copied ? t("contact.copied") : t("contact.copy")}
+          <StableText
+            k={copied ? "contact.copied" : "contact.copy"}
+            also={["contact.copy", "contact.copied"]}
+          />
         </button>
         <a
           className="button button--outline"

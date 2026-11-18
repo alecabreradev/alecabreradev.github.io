@@ -1,0 +1,12 @@
+.stable-text {
+  display: inline-grid;
+  justify-items: center;
+}
+
+.stable-text > * {
+  grid-area: 1 / 1;
+}
+
+.stable-text__ghost {
+  visibility: hidden;
+}

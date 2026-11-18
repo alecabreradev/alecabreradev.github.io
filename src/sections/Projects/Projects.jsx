@@ -8,6 +8,7 @@ import Toolkit from "../../features/toolkit/Toolkit.jsx";
 import ProjectTabs from "./ProjectTabs.jsx";
 import ProjectPanel from "./ProjectPanel.jsx";
 import "./Projects.css";
+import StableText from "../../components/StableText/StableText.jsx";
 
 const [corteArte, no2] = PROJECTS;
 
@@ -15,7 +16,7 @@ export default function Projects({ selectedId, onSelect, onOpenProject, theme })
   const { t } = useLanguage();
   const tabs = PROJECTS.map((project) => ({
     id: project.id,
-    label: t(`projects.${project.id}.name`),
+    label: <StableText k={`projects.${project.id}.name`} />,
   }));
 
   return (

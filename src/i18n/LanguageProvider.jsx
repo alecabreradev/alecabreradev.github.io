@@ -30,6 +30,8 @@ export default function LanguageProvider({ children }) {
       toggleLanguage: () => setLanguage((current) => (current === "es" ? "en" : "es")),
       /** Returns the text (or list/object of texts) for a key in the current language. */
       t: (key) => lookup(LOCALES[language], key) ?? key,
+      /** The text of a key in every language (to reserve the width of the longest one). */
+      variants: (key) => Object.values(LOCALES).map((locale) => lookup(locale, key) ?? key),
     }),
     [language],
   );

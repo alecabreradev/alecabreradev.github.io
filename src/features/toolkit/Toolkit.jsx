@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useLanguage } from "../../i18n/context.js";
 import { CATEGORIES, CONTEXTS, TOOLS, countByContext, filterTools } from "./toolkit.js";
 import "./Toolkit.css";
+import StableText from "../../components/StableText/StableText.jsx";
 
 const PROJECT_CONTEXTS = new Set(["corteArte", "no2"]);
 
@@ -40,7 +41,7 @@ export default function Toolkit({ onOpenProject }) {
             aria-pressed={category === id}
             onClick={() => setCategory(id)}
           >
-            {t(`projects.skills.categories.${id}`)}
+            <StableText k={`projects.skills.categories.${id}`} />
             <span className="toolkit__filter-count">{filterTools(TOOLS, id).length}</span>
           </button>
         ))}
@@ -59,7 +60,7 @@ export default function Toolkit({ onOpenProject }) {
             onPointerLeave={(event) => event.pointerType === "mouse" && setHighlight(null)}
           >
             <span className="toolkit__context-dot" aria-hidden="true" />
-            {t(`projects.skills.contexts.${context}`)}
+            <StableText k={`projects.skills.contexts.${context}`} />
             <span className="toolkit__filter-count">{counts[context]}</span>
           </button>
         ))}
