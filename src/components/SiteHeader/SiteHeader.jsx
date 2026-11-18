@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useLanguage } from "../../i18n/context.js";
 import { PROFILE } from "../../data/profile.js";
+import { scrollToTop } from "../../utils/motion.js";
 import "./SiteHeader.css";
 
 const NAV_ITEMS = ["about", "projects", "timeline", "contact"];
@@ -114,6 +115,12 @@ export default function SiteHeader({ theme, onToggleTheme }) {
   const menuButtonRef = useRef(null);
   const indicator = useIndicator(navRef, active, language);
 
+  const goTop = (event) => {
+    event.preventDefault();
+    setMenuOpen(false);
+    scrollToTop();
+  };
+
   useEffect(() => {
     const onScroll = () => setCompact(window.scrollY > COMPACT_AFTER_PX);
     onScroll();
@@ -143,45 +150,71 @@ export default function SiteHeader({ theme, onToggleTheme }) {
 
   return (
     <header className="site-header" ref={headerRef} data-compact={compact || undefined}>
-      <a className="site-header__identity" href="#top">
+      <a className="site-header__identity" href="#top" onClick={goTop}>
         <span className="site-header__name">Alejandro Cabrera</span>
         <span className="site-header__role">{t("nav.role")}</span>
       </a>
       <a
         className="site-header__monogram"
         href="#top"
+        onClick={goTop}
         aria-label={PROFILE.name}
         title={PROFILE.name}
       >
         AC
       </a>
 
-      <nav
-        id="site-menu"
-        ref={navRef}
-        className="site-header__nav"
-        aria-label={t("nav.label")}
-        data-open={menuOpen || undefined}
-      >
-        {indicator && (
-          <span
-            className="site-header__indicator"
-            aria-hidden="true"
-            style={{ transform: `translateX(${indicator.left}px)`, width: indicator.width }}
-          />
-        )}
-        {NAV_ITEMS.map((id) => (
-          <a
-            key={id}
-            className="site-header__link"
-            href={`#${id}`}
-            aria-current={active === id ? "location" : undefined}
-            onClick={() => setMenuOpen(false)}
+      {/* Desktop: one floating pill with the sections, then language and theme */}
+      <div className="site-header__pill">
+        <nav
+          id="site-menu"
+          ref={navRef}
+          className="site-header__nav"
+          aria-label={t("nav.label")}
+          data-open={menuOpen || undefined}
+        >
+          {indicator && (
+            <span
+              className="site-header__indicator"
+              aria-hidden="true"
+              style={{ transform: `translateX(${indicator.left}px)`, width: indicator.width }}
+            />
+          )}
+          {NAV_ITEMS.map((id) => (
+            <a
+              key={id}
+              className="site-header__link"
+              href={`#${id}`}
+              aria-current={active === id ? "location" : undefined}
+              onClick={() => setMenuOpen(false)}
+            >
+              {t(`nav.${id}`)}
+            </a>
+          ))}
+        </nav>
+        <div className="site-header__prefs">
+          <span className="site-header__divider" aria-hidden="true" />
+          <button
+            type="button"
+            className="icon-button"
+            onClick={toggleLanguage}
+            aria-label={t("nav.switchLanguage")}
+            title={t("nav.switchLanguage")}
           >
-            {t(`nav.${id}`)}
-          </a>
-        ))}
-      </nav>
+            <GlobeIcon />
+            <span className="icon-button__text">{language === "es" ? "EN" : "ES"}</span>
+          </button>
+          <button
+            type="button"
+            className="icon-button"
+            onClick={onToggleTheme}
+            aria-label={t("nav.toggleTheme")}
+            title={t("nav.toggleTheme")}
+          >
+            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+          </button>
+        </div>
+      </div>
 
       <div className="site-header__tools">
         <a
@@ -200,26 +233,6 @@ export default function SiteHeader({ theme, onToggleTheme }) {
         >
           GitHub <ExternalIcon />
         </a>
-        <span className="site-header__divider" aria-hidden="true" />
-        <button
-          type="button"
-          className="icon-button"
-          onClick={toggleLanguage}
-          aria-label={t("nav.switchLanguage")}
-          title={t("nav.switchLanguage")}
-        >
-          <GlobeIcon />
-          <span className="icon-button__text">{language === "es" ? "EN" : "ES"}</span>
-        </button>
-        <button
-          type="button"
-          className="icon-button"
-          onClick={onToggleTheme}
-          aria-label={t("nav.toggleTheme")}
-          title={t("nav.toggleTheme")}
-        >
-          {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-        </button>
         <button
           ref={menuButtonRef}
           type="button"

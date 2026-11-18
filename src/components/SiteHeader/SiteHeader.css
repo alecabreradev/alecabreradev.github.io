@@ -3,13 +3,17 @@
  * the page; only the pill with the sections floats in the centre.
  */
 .site-header {
+  /* The pill is fixed, so the header row is sized to keep its centre exactly in line */
+  --pill-top: 16px;
+  --pill-height: 44px;
+
   position: relative;
   z-index: 30;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   gap: 16px;
-  min-height: 76px;
+  min-height: calc(2 * var(--pill-top) + var(--pill-height));
 }
 
 /* Name and role, small, like a signature */
@@ -35,13 +39,16 @@
   display: none;
 }
 
-/* Floating pill with a marker that slides to the current section */
-.site-header__nav {
+/* Floating pill: the sections (with a marker that slides to the current one),
+   then language and theme after a thin divider */
+.site-header__pill {
   position: fixed;
-  top: calc(env(safe-area-inset-top, 0px) + 18px);
+  top: calc(env(safe-area-inset-top, 0px) + var(--pill-top));
   left: 50%;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
+  height: var(--pill-height);
   padding: 4px;
   transform: translateX(-50%);
   border: 1px solid var(--color-border);
@@ -53,10 +60,22 @@
   font-size: 14px;
 }
 
+.site-header__nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.site-header__prefs {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
 .site-header__indicator {
   position: absolute;
-  top: 4px;
-  bottom: 4px;
+  top: 0;
+  bottom: 0;
   left: 0;
   border-radius: var(--radius-pill);
   background: var(--color-accent-soft);
@@ -81,9 +100,10 @@
 
 .site-header__link {
   position: relative;
-  padding: 7px 16px;
+  padding: 0 16px;
   border-radius: var(--radius-pill);
   color: var(--color-text-muted);
+  line-height: 34px;
   text-decoration: none;
   white-space: nowrap;
   transition: color 0.2s;
@@ -130,7 +150,7 @@
 .site-header__divider {
   width: 1px;
   height: 18px;
-  margin: 0 8px;
+  margin: 0 6px 0 4px;
   background: var(--color-border);
 }
 
@@ -207,8 +227,7 @@
 
 /* Narrower screens: no room for the external links next to the pill */
 @media (max-width: 1020px) {
-  .site-header__external,
-  .site-header__divider {
+  .site-header__external {
     display: none;
   }
 }
@@ -276,6 +295,15 @@
     display: inline-flex;
   }
 
+  /* The pill dissolves: language and theme sit in the bar, the sections go in the dropdown */
+  .site-header__pill {
+    display: contents;
+  }
+
+  .site-header__divider {
+    display: none;
+  }
+
   .site-header__indicator {
     display: none;
   }
@@ -289,7 +317,9 @@
     align-items: stretch;
     gap: 2px;
     min-width: 200px;
+    height: auto;
     padding: 6px;
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     background: var(--color-surface);
     backdrop-filter: none;
@@ -316,8 +346,9 @@
   }
 
   .site-header__link {
-    padding: 10px 14px;
+    padding: 0 14px;
     border-radius: var(--radius-md);
+    line-height: 44px;
   }
 
   .site-header__link[aria-current] {

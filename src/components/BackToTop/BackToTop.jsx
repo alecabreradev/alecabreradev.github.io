@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "../../i18n/context.js";
-import { prefersReducedMotion } from "../../utils/motion.js";
+import { scrollToTop } from "../../utils/motion.js";
 import "./BackToTop.css";
 
 const SHOW_AFTER_PX = 600;
@@ -37,10 +37,6 @@ export default function BackToTop() {
     };
   }, []);
 
-  const goTop = () => {
-    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
-  };
-
   return (
     <button
       type="button"
@@ -49,7 +45,7 @@ export default function BackToTop() {
       aria-label={t("footer.backToTop")}
       title={t("footer.backToTop")}
       tabIndex={visible ? 0 : -1}
-      onClick={goTop}
+      onClick={scrollToTop}
     >
       <svg viewBox="0 0 48 48" aria-hidden="true">
         <g transform="rotate(-90 24 24)">
