@@ -2,6 +2,13 @@
   padding-block: 28px 10px;
 }
 
+.hero__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 40px;
+}
+
 .hero__title {
   max-width: 18ch;
   margin: 0 0 16px;
@@ -14,4 +21,75 @@
   max-width: 42em;
   margin: 0 0 26px;
   font-size: clamp(17px, 2.1vw, 20px);
+}
+
+/* Portrait: round photo with a thin accent ring and a dashed orbit, like a node of the network */
+.hero__photo {
+  position: relative;
+  margin: 0 8px 26px 0;
+  width: 184px;
+  aspect-ratio: 1;
+  max-width: 100%;
+}
+
+.hero__photo::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border: 1.5px dashed color-mix(in srgb, var(--color-accent) 45%, transparent);
+  border-radius: 50%;
+  animation: hero-orbit 40s linear infinite;
+}
+
+.hero__photo::after {
+  content: "";
+  position: absolute;
+  top: 8%;
+  right: -2px;
+  width: 14px;
+  height: 14px;
+  border: 3px solid var(--color-bg);
+  border-radius: 50%;
+  background: var(--color-signal);
+}
+
+.hero__photo img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--color-surface);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 2px var(--color-accent),
+    0 18px 40px -18px color-mix(in srgb, var(--color-accent) 70%, transparent);
+  object-fit: cover;
+}
+
+@keyframes hero-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 720px) {
+  .hero__head {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .hero__photo {
+    order: -1;
+    width: 104px;
+    margin: 12px 0 22px 12px;
+  }
+
+  .hero__photo::before {
+    inset: -9px;
+  }
+
+  .hero__photo::after {
+    width: 12px;
+    height: 12px;
+  }
 }

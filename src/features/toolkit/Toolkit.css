@@ -310,3 +310,132 @@
     font-size: 13px;
   }
 }
+
+/*
+ * Phones: everything (filters, detail and the 20 tiles) fits in about one screen.
+ * Tiles become small vertical cards in four columns; nothing is hidden, only denser.
+ */
+@media (max-width: 560px) {
+  .toolkit {
+    margin-top: 24px;
+    padding: 14px 12px;
+  }
+
+  .toolkit__title {
+    font-size: 18px;
+  }
+
+  .toolkit__header p {
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .toolkit__filters,
+  .toolkit__contexts {
+    gap: 5px;
+  }
+
+  .toolkit__filter {
+    gap: 5px;
+    padding: 3px 8px;
+    font-size: 12px;
+  }
+
+  .toolkit__filter-count {
+    min-width: 16px;
+    padding: 0 4px;
+    font-size: 10.5px;
+  }
+
+  .toolkit__contexts {
+    margin: 8px 0 12px;
+    font-size: 12px;
+  }
+
+  .toolkit__contexts > .text-muted {
+    flex-basis: 100%;
+  }
+
+  .toolkit__context,
+  .toolkit__tag {
+    gap: 5px;
+    padding: 2px 8px;
+    font-size: 12px;
+  }
+
+  .toolkit__body {
+    gap: 10px;
+  }
+
+  .toolkit__detail {
+    padding: 10px 12px;
+  }
+
+  .toolkit__detail-head {
+    gap: 10px;
+  }
+
+  .toolkit__mark--large {
+    width: 34px;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  .toolkit__detail-name {
+    font-size: 15px;
+  }
+
+  .toolkit__detail-head .text-muted {
+    font-size: 12px;
+  }
+
+  .toolkit__detail p {
+    margin: 8px 0;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .toolkit__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .toolkit__tile {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 4px;
+    padding: 7px 3px 6px;
+    text-align: center;
+  }
+
+  .toolkit__tile:hover {
+    transform: none;
+  }
+
+  .toolkit__mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    font-size: 11px;
+  }
+
+  .toolkit__name {
+    padding: 0;
+    font-size: 11px;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  .toolkit__dots {
+    top: 5px;
+    right: 5px;
+    transform: none;
+    gap: 3px;
+  }
+
+  .toolkit__dot {
+    width: 5px;
+    height: 5px;
+  }
+}

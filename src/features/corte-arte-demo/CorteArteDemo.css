@@ -28,6 +28,8 @@
 
   position: relative;
   flex: none;
+  /* Centred when the log wraps below it (mobile); on wide screens the log takes the free space. */
+  margin-inline: auto;
   width: 250px;
   height: 480px;
   overflow: hidden;

@@ -1,4 +1,5 @@
 import { useLanguage } from "../../i18n/context.js";
+import Marked from "../../components/Marked/Marked.jsx";
 import Section from "../../components/Section/Section.jsx";
 import "./Timeline.css";
 
@@ -12,7 +13,9 @@ export default function Timeline() {
             <span className="timeline__date">{item.date}</span>
             <div>
               <h3>{item.title}</h3>
-              <p>{item.text}</p>
+              <p>
+                <Marked text={item.text} />
+              </p>
             </div>
           </li>
         ))}

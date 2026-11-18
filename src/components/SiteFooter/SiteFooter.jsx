@@ -1,16 +1,24 @@
+import { useState } from "react";
 import { useLanguage } from "../../i18n/context.js";
 import { PROFILE } from "../../data/profile.js";
+import PageStats from "./PageStats.jsx";
 import "./SiteFooter.css";
 
-function GitHubIcon() {
-  return (
-    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
-      <path
-        fill="currentColor"
-        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
-      />
-    </svg>
-  );
+/* Link nodes, top to bottom. `y` is the vertical position (0–100) in the mini network. */
+const LINKS = [
+  { id: "linkedin", mark: "in", href: PROFILE.links.linkedin, y: 14 },
+  { id: "email", mark: "@", href: `mailto:${PROFILE.email}`, y: 38 },
+  { id: "github", mark: "gh", href: PROFILE.links.github, y: 62 },
+  { id: "source", mark: "</>", href: PROFILE.links.source, y: 86 },
+];
+
+const HUB = { x: 10, y: 50 };
+const NODE_X = 40;
+
+/** Curve from the hub (my initials) to a link node, in the 0–100 box of the SVG. */
+function edgePath(y) {
+  const midX = (HUB.x + NODE_X) / 2;
+  return `M${HUB.x} ${HUB.y} C${midX} ${HUB.y} ${midX} ${y} ${NODE_X} ${y}`;
 }
 
 function ArrowUpIcon() {
@@ -28,31 +36,87 @@ function ArrowUpIcon() {
   );
 }
 
+/**
+ * Closing of the page: real numbers about this page (measured in the visitor's browser)
+ * and my links drawn as a small network, like the skill network at the top.
+ */
 export default function SiteFooter() {
   const { t } = useLanguage();
+  const [active, setActive] = useState(null);
+
   return (
     <footer className="site-footer">
-      <div className="site-footer__info">
-        <span className="site-footer__name">{PROFILE.name}</span>
-        <span className="site-footer__meta">
-          © {new Date().getFullYear()} · {t("footer.builtWith")}
-        </span>
-      </div>
-      <nav className="site-footer__actions" aria-label={t("footer.label")}>
-        <a
-          className="site-footer__button"
-          href={PROFILE.links.source}
-          target="_blank"
-          rel="noopener noreferrer"
+      <div className="site-footer__main">
+        <div className="site-footer__intro">
+          <p className="site-footer__name">{PROFILE.name}</p>
+          <p className="site-footer__role">{t("footer.role")}</p>
+          <PageStats />
+        </div>
+
+        <nav
+          className="footer-net"
+          aria-label={t("footer.networkLabel")}
+          data-active={active || undefined}
         >
-          <GitHubIcon />
-          {t("footer.source")}
-        </a>
-        <a className="site-footer__button site-footer__button--top" href="#top">
-          <ArrowUpIcon />
+          <svg
+            className="footer-net__edges"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            {LINKS.map((link, index) => (
+              <g key={link.id} className={active === link.id ? "is-active" : undefined}>
+                <path className="footer-net__edge" d={edgePath(link.y)} />
+                <path
+                  className="footer-net__pulse"
+                  d={edgePath(link.y)}
+                  pathLength="100"
+                  style={{ "--i": index }}
+                />
+              </g>
+            ))}
+          </svg>
+
+          <span
+            className="footer-net__hub"
+            style={{ left: `${HUB.x}%`, top: `${HUB.y}%` }}
+            aria-hidden="true"
+          >
+            AC
+          </span>
+
+          {LINKS.map((link) => {
+            const external = !link.href.startsWith("mailto:");
+            return (
+              <a
+                key={link.id}
+                className="footer-net__node"
+                style={{ left: `${NODE_X}%`, top: `${link.y}%` }}
+                href={link.href}
+                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                onPointerEnter={() => setActive(link.id)}
+                onPointerLeave={() => setActive(null)}
+                onFocus={() => setActive(link.id)}
+                onBlur={() => setActive(null)}
+                data-active={active === link.id || undefined}
+              >
+                <span className="footer-net__mark" aria-hidden="true">
+                  {link.mark}
+                </span>
+                {t(`footer.links.${link.id}`)}
+              </a>
+            );
+          })}
+        </nav>
+      </div>
+
+      <div className="site-footer__bottom">
+        <span className="site-footer__email">{PROFILE.email}</span>
+        <a className="site-footer__top" href="#top">
           {t("footer.backToTop")}
+          <ArrowUpIcon />
         </a>
-      </nav>
+      </div>
     </footer>
   );
 }

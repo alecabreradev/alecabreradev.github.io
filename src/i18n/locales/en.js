@@ -16,7 +16,7 @@ const en = {
   hero: {
     title: "Junior developer for web, mobile and data.",
     intro:
-      "I’m Alejandro Cabrera, a junior developer with a background in Computer Engineering at the University of Cádiz. I’ve built mobile and web apps end to end, from the API and the database to the interface, and machine learning models with real data. You can try my projects here.",
+      "I’m Alejandro Cabrera, a junior developer with a background in Computer Engineering at the University of Cádiz. I’ve built ==mobile and web apps end to end==, from the API and the database to the interface, and ==machine learning models with real data==. You can try my projects here.",
   },
   network: {
     label: "Skill network",
@@ -35,9 +35,9 @@ const en = {
   about: {
     title: "About me",
     paragraphs: [
-      "I enjoy taking an idea all the way to something people can use. I’ve built an Android and web booking system on my own REST API, and a machine learning model that beats its baseline by 28% at predicting pollution in Madrid.",
-      "Software and AI are what motivate me most, and I’m now going deeper into AI applications. My background is Computer Engineering at the University of Cádiz, plus an Erasmus+ year in Poland studying in English, which taught me to adapt quickly.",
-      "I’m looking for a team where I can contribute from day one and keep growing.",
+      "I enjoy ==taking an idea all the way== to something people can use. I’ve built an Android and web booking system on my own REST API, and a machine learning model that ==beats its baseline by 28%== at predicting pollution in Madrid.",
+      "==Software and AI== are what motivate me most, and I’m now going deeper into AI applications. My background is Computer Engineering at the University of Cádiz, plus an Erasmus+ year in Poland studying in English, which taught me to ==adapt quickly==.",
+      "I’m looking for a team where I can ==contribute from day one== and keep growing.",
     ],
     facts: [
       { term: "Education", value: "Computer Engineering · University of Cádiz" },
@@ -54,8 +54,8 @@ const en = {
       short: "C&A",
       title: "Corte & Arte: booking app for a hair salon",
       paragraphs: [
-        "My first complete project. A Kotlin Android app with Jetpack Compose to browse rooms, book appointments and manage bookings, connected through Retrofit to my own Node.js and Express REST API.",
-        "The app includes Firebase Auth login, full booking CRUD through a ViewModel, PDF export, a Google Maps screen and a navigation drawer. The website is built with React and uses the same REST API with MongoDB, so the app and the website share the bookings.",
+        "My first complete project. A ==Kotlin Android app with Jetpack Compose== to browse rooms, book appointments and manage bookings, connected through Retrofit to ==my own Node.js and Express REST API==.",
+        "The app includes Firebase Auth login, full booking CRUD through a ViewModel, PDF export, a Google Maps screen and a navigation drawer. The website is built with React and uses the same REST API with MongoDB, so ==the app and the website share the bookings==.",
       ],
       repoLink: "See the code on GitHub",
       demoHint:
@@ -67,7 +67,7 @@ const en = {
       short: "NO₂",
       title: "Predicting high-NO₂ days in Madrid",
       paragraphs: [
-        "Using Madrid City Council’s open air-quality data and Open-Meteo weather, I predict whether tomorrow’s mean NO₂ at the Escuelas Aguirre station will exceed 40 µg/m³. I compare Logistic Regression, Random Forest and XGBoost with time-based validation and against the rule “tomorrow will be like today”.",
+        "Using Madrid City Council’s open air-quality data and Open-Meteo weather, I predict whether tomorrow’s mean NO₂ at the Escuelas Aguirre station will exceed 40 µg/m³. I compare ==Logistic Regression, Random Forest and XGBoost== with ==time-based validation== and against the rule “tomorrow will be like today”.",
       ],
       prAucCaption: "PR-AUC on the test period (January–October 2026)",
       persistence: "Tomorrow like today",
@@ -134,12 +134,12 @@ const en = {
       {
         date: "2025 – 2026",
         title: "Erasmus+ · Computer Science · University of Wrocław",
-        text: "A year studying in English in an international environment, a challenge that taught me to adapt quickly and solve problems on my own.",
+        text: "A year ==studying in English== in an international environment, a challenge that taught me to adapt quickly and solve problems on my own.",
       },
       {
         date: "2022 – now",
         title: "Computer Engineering · University of Cádiz",
-        text: "Information Systems: AI, machine learning, data, algorithms and databases.",
+        text: "Information Systems: ==AI, machine learning, data==, algorithms and databases.",
       },
     ],
   },
@@ -151,9 +151,27 @@ const en = {
   },
   footer: {
     backToTop: "Back to top",
-    builtWith: "Built with React and Vite",
     label: "Footer links",
-    source: "Source code",
+    role: "Junior developer · Software & AI · Cádiz, Spain",
+    stats: {
+      title: "This page, by the numbers",
+      live: "measured now",
+      load: "Load",
+      loadNote: "in your browser",
+      size: "Size",
+      sizeNote: "downloaded, compressed",
+      tests: "Tests",
+      testsNote: "pass before every deploy",
+      version: "Version",
+      updated: "updated",
+    },
+    networkLabel: "My links",
+    links: {
+      linkedin: "LinkedIn",
+      email: "Email",
+      github: "GitHub",
+      source: "This site’s code",
+    },
   },
 };
 

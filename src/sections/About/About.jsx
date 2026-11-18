@@ -1,4 +1,5 @@
 import { useLanguage } from "../../i18n/context.js";
+import Marked from "../../components/Marked/Marked.jsx";
 import Section from "../../components/Section/Section.jsx";
 import "./About.css";
 
@@ -9,7 +10,9 @@ export default function About() {
       <div className="about">
         <div className="about__text">
           {t("about.paragraphs").map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
+            <p key={paragraph}>
+              <Marked text={paragraph} />
+            </p>
           ))}
         </div>
         <dl className="about__facts">

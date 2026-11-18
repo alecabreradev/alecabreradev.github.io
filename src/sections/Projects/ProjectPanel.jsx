@@ -1,3 +1,5 @@
+import Marked from "../../components/Marked/Marked.jsx";
+
 /** One project: description on the left, interactive demo on the right. */
 export default function ProjectPanel({
   id,
@@ -22,7 +24,9 @@ export default function ProjectPanel({
       <div className="project-panel__info">
         <h3>{title}</h3>
         {paragraphs.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
+          <p key={paragraph}>
+            <Marked text={paragraph} />
+          </p>
         ))}
         {extra}
         <p className="tech-stack">{stack.join(" · ")}</p>

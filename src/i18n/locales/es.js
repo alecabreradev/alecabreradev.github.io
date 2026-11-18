@@ -16,7 +16,7 @@ const es = {
   hero: {
     title: "Desarrollador junior de web, móvil y datos.",
     intro:
-      "Soy Alejandro Cabrera, desarrollador junior con formación en Ingeniería Informática en la Universidad de Cádiz. He construido aplicaciones móviles y web de principio a fin, desde la API y la base de datos hasta la interfaz, y modelos de machine learning con datos reales. Aquí puedes probar mis proyectos.",
+      "Soy Alejandro Cabrera, desarrollador junior con formación en Ingeniería Informática en la Universidad de Cádiz. He construido ==aplicaciones móviles y web de principio a fin==, desde la API y la base de datos hasta la interfaz, y ==modelos de machine learning con datos reales==. Aquí puedes probar mis proyectos.",
   },
   network: {
     label: "Red de habilidades",
@@ -35,9 +35,9 @@ const es = {
   about: {
     title: "Sobre mí",
     paragraphs: [
-      "Me gusta llevar una idea hasta el final, hasta convertirla en algo que la gente pueda usar. He construido un sistema de reservas para Android y web sobre mi propia API REST, y un modelo de machine learning que mejora en un 28 % a la referencia al predecir la contaminación en Madrid.",
-      "El software y la IA son lo que más me motiva, y ahora estoy profundizando en aplicaciones de IA. Mi formación es en Ingeniería Informática en la Universidad de Cádiz, y pasé un año de Erasmus+ en Polonia estudiando en inglés, algo que me enseñó a adaptarme rápido.",
-      "Busco un equipo en el que aportar desde el primer día y seguir creciendo.",
+      "Me gusta ==llevar una idea hasta el final==, hasta convertirla en algo que la gente pueda usar. He construido un sistema de reservas para Android y web sobre mi propia API REST, y un modelo de machine learning que ==mejora en un 28 % a la referencia== al predecir la contaminación en Madrid.",
+      "==El software y la IA== son lo que más me motiva, y ahora estoy profundizando en aplicaciones de IA. Mi formación es en Ingeniería Informática en la Universidad de Cádiz, y pasé un año de Erasmus+ en Polonia estudiando en inglés, algo que me enseñó a ==adaptarme rápido==.",
+      "Busco un equipo en el que ==aportar desde el primer día== y seguir creciendo.",
     ],
     facts: [
       { term: "Formación", value: "Ingeniería Informática · Universidad de Cádiz" },
@@ -54,8 +54,8 @@ const es = {
       short: "C&A",
       title: "Corte & Arte: app de reservas para una peluquería",
       paragraphs: [
-        "Mi primer proyecto completo. Una app Android en Kotlin con Jetpack Compose para consultar salas, reservar cita y gestionar las reservas, conectada con Retrofit a una API REST propia en Node.js y Express.",
-        "La app incluye login con Firebase Auth, CRUD completo de reservas con ViewModel, generación de PDF, mapa con Google Maps y menú lateral. La web está hecha en React y usa la misma API REST con MongoDB, así que app y web comparten las reservas.",
+        "Mi primer proyecto completo. Una ==app Android en Kotlin con Jetpack Compose== para consultar salas, reservar cita y gestionar las reservas, conectada con Retrofit a una ==API REST propia en Node.js y Express==.",
+        "La app incluye login con Firebase Auth, CRUD completo de reservas con ViewModel, generación de PDF, mapa con Google Maps y menú lateral. La web está hecha en React y usa la misma API REST con MongoDB, así que ==app y web comparten las reservas==.",
       ],
       repoLink: "Ver el código en GitHub",
       demoHint:
@@ -67,7 +67,7 @@ const es = {
       short: "NO₂",
       title: "Predicción de días con NO₂ alto en Madrid",
       paragraphs: [
-        "Con los datos abiertos de calidad del aire del Ayuntamiento de Madrid y la meteorología de Open-Meteo, predigo si mañana la media de NO₂ en la estación de Escuelas Aguirre superará 40 µg/m³. Comparo Regresión Logística, Random Forest y XGBoost con validación temporal y frente a la regla «mañana será como hoy».",
+        "Con los datos abiertos de calidad del aire del Ayuntamiento de Madrid y la meteorología de Open-Meteo, predigo si mañana la media de NO₂ en la estación de Escuelas Aguirre superará 40 µg/m³. Comparo ==Regresión Logística, Random Forest y XGBoost== con ==validación temporal== y frente a la regla «mañana será como hoy».",
       ],
       prAucCaption: "PR-AUC en el periodo de test (enero–octubre 2026)",
       persistence: "Mañana como hoy",
@@ -135,12 +135,12 @@ const es = {
       {
         date: "2025 – 2026",
         title: "Erasmus+ · Computer Science · Universidad de Wrocław",
-        text: "Un año estudiando en inglés en un entorno internacional, un reto que me enseñó a adaptarme rápido y a resolver problemas por mi cuenta.",
+        text: "Un año ==estudiando en inglés== en un entorno internacional, un reto que me enseñó a adaptarme rápido y a resolver problemas por mi cuenta.",
       },
       {
         date: "2022 – hoy",
         title: "Ingeniería Informática · Universidad de Cádiz",
-        text: "Sistemas de Información: IA, machine learning, datos, algoritmos y bases de datos.",
+        text: "Sistemas de Información: ==IA, machine learning, datos==, algoritmos y bases de datos.",
       },
     ],
   },
@@ -152,9 +152,27 @@ const es = {
   },
   footer: {
     backToTop: "Volver arriba",
-    builtWith: "Hecho con React y Vite",
     label: "Enlaces del pie de página",
-    source: "Código fuente",
+    role: "Desarrollador junior · Software e IA · Cádiz, España",
+    stats: {
+      title: "Esta página, en cifras",
+      live: "medido ahora",
+      load: "Carga",
+      loadNote: "en tu navegador",
+      size: "Peso",
+      sizeNote: "descargado, comprimido",
+      tests: "Tests",
+      testsNote: "pasan antes de cada despliegue",
+      version: "Versión",
+      updated: "actualizada",
+    },
+    networkLabel: "Mis enlaces",
+    links: {
+      linkedin: "LinkedIn",
+      email: "Email",
+      github: "GitHub",
+      source: "Código de esta web",
+    },
   },
 };
 
