@@ -23,7 +23,7 @@ export default function App() {
 
   return (
     <div className="container">
-      <SiteHeader onToggleTheme={toggleTheme} />
+      <SiteHeader theme={theme} onToggleTheme={toggleTheme} />
       <main id="top">
         <Hero onOpenProject={openProject} />
         <About />

@@ -11,7 +11,7 @@ const en = {
     contact: "Contact",
     switchLanguage: "Cambiar a español",
     toggleTheme: "Toggle light or dark theme",
-    theme: "Theme",
+    menu: "Menu",
   },
   hero: {
     title: "Junior developer for web, mobile and data.",

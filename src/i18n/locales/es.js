@@ -11,7 +11,7 @@ const es = {
     contact: "Contacto",
     switchLanguage: "Switch to English",
     toggleTheme: "Cambiar tema claro u oscuro",
-    theme: "Tema",
+    menu: "Menú",
   },
   hero: {
     title: "Desarrollador junior de web, móvil y datos.",
