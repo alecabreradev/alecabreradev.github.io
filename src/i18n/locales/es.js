@@ -171,7 +171,6 @@ const es = {
       linkedin: "LinkedIn",
       email: "Email",
       github: "GitHub",
-      source: "Código de esta web",
     },
   },
 };

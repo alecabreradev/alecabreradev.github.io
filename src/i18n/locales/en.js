@@ -170,7 +170,6 @@ const en = {
       linkedin: "LinkedIn",
       email: "Email",
       github: "GitHub",
-      source: "This site’s code",
     },
   },
 };

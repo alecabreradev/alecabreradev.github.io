@@ -6,10 +6,9 @@ import "./SiteFooter.css";
 
 /* Link nodes, top to bottom. `y` is the vertical position (0–100) in the mini network. */
 const LINKS = [
-  { id: "linkedin", mark: "in", href: PROFILE.links.linkedin, y: 14 },
-  { id: "email", mark: "@", href: `mailto:${PROFILE.email}`, y: 38 },
-  { id: "github", mark: "gh", href: PROFILE.links.github, y: 62 },
-  { id: "source", mark: "</>", href: PROFILE.links.source, y: 86 },
+  { id: "linkedin", mark: "in", href: PROFILE.links.linkedin, y: 18 },
+  { id: "email", mark: "@", href: `mailto:${PROFILE.email}`, y: 50 },
+  { id: "github", mark: "gh", href: PROFILE.links.github, y: 82 },
 ];
 
 const HUB = { x: 10, y: 50 };

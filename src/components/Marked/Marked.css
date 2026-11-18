@@ -1,27 +1,56 @@
-/* Highlighter-pen effect for key words: the stroke is drawn left to right when it appears. */
+/*
+ * Key words. Light theme: a soft highlighter stroke behind the words.
+ * Dark theme: a soft fill looks muddy on the dark background, so it becomes a thin
+ * bright underline and the words get the brightest text color.
+ * In both, the stroke is drawn left to right when the words appear.
+ */
 .marked {
+  --mark-a: color-mix(in srgb, var(--color-accent) 24%, transparent);
+  --mark-b: color-mix(in srgb, var(--color-signal) 20%, transparent);
+  --mark-height: 46%;
+  --mark-y: 88%;
+  --mark-color: inherit;
+
   padding: 0 0.12em;
   margin: 0 -0.04em;
   border-radius: 0.2em;
-  background: linear-gradient(
-      100deg,
-      color-mix(in srgb, var(--color-accent) 24%, transparent),
-      color-mix(in srgb, var(--color-signal) 20%, transparent)
-    )
-    no-repeat 0 88% / 0% 46%;
-  color: inherit;
+  background: linear-gradient(100deg, var(--mark-a), var(--mark-b)) no-repeat 0 var(--mark-y) / 0%
+    var(--mark-height);
+  color: var(--mark-color);
   font-weight: 600;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   transition: background-size 0.9s cubic-bezier(0.25, 0.8, 0.25, 1) 0.15s;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .marked {
+    --mark-a: var(--color-accent);
+    --mark-b: var(--color-signal);
+    --mark-height: 2px;
+    --mark-y: 100%;
+    --mark-color: #ffffff;
+
+    border-radius: 0;
+  }
+}
+
+:root[data-theme="dark"] .marked {
+  --mark-a: var(--color-accent);
+  --mark-b: var(--color-signal);
+  --mark-height: 2px;
+  --mark-y: 100%;
+  --mark-color: #ffffff;
+
+  border-radius: 0;
+}
+
 .marked.is-drawn {
-  background-size: 100% 46%;
+  background-size: 100% var(--mark-height);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .marked {
-    background-size: 100% 46%;
+    background-size: 100% var(--mark-height);
   }
 }
